@@ -1,0 +1,19 @@
+
+1. App(@main)에서 AuthenticationView를 호출
+
+👉 AuthenticatedView
+유저가 로그인 인증을 진행했는지 확인 후 로그인 뷰 또는 메인 탭 뷰로 분기하여 노출함.
+    LoginIntroView -> LoginView
+    MainTabView
+
+👉 DIContainer (앱 전체에서 공유되어야할 클래스로 EnvironmentObject로 선언되어 사용)
+Dependency Injection Container 역할
+앱 외부에서 주입되어야 하는 정보나 로직을 관리하는 컨테이너
+이를 통해 Service Layer에 접근할 수 있도록 구조화.
+
+
+👉 AuthenticationViewModel (여러 뷰에서 사용되므로 EnvironmentObject로 선언됨 )
+@EnvironmentObject 로 선언된 DIContainer를 통해 서비스 레이어로 접근 - 통신을 진행하로독 구조화.
+
+
+👉 Service Layer
