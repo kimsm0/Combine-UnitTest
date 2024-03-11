@@ -41,16 +41,22 @@ struct LoginView: View {
             }, label: {
                 Text("Google 로그인")
             }).buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
-        }.navigationBarBackButtonHidden()
-            .toolbar{
-                ToolbarItemGroup(placement: .navigationBarLeading, content: {
-                    Button(action: {
-                        dismiss()
-                    }, label: {
-                        Image("back")
-                    })
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar{
+            ToolbarItemGroup(placement: .navigationBarLeading, content: {
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image("back")
                 })
+            })
+        }
+        .overlay(alignment: .center, content: {
+            if authViewModel.isLoading{
+                ProgressView()
             }
+        })
     }
 }
 
