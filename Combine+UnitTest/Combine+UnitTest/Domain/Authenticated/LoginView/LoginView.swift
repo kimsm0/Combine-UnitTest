@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+//LoginView의 ViewModel = AuthenticatedViewModel
+
 struct LoginView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var authViewModel: AuthenticatedViewModel
     
     var body: some View {
     
@@ -28,13 +31,13 @@ struct LoginView: View {
             Spacer()
             
             Button(action: {
-                // TODO: apple login
+                // TODO: 
             }, label: {
                 Text("Apple 로그인")
             }).buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
             
             Button(action: {
-                // TODO: apple login
+                authViewModel.send(action: .googleLogin)
             }, label: {
                 Text("Google 로그인")
             }).buttonStyle(LoginButtonStyle(textColor: .bkText, borderColor: .greyLight))
