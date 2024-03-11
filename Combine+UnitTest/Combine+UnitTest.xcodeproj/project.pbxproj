@@ -21,6 +21,7 @@
 		318314B72B9E06B400624F21 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318314B62B9E06B400624F21 /* MainTabView.swift */; };
 		318314B92B9E06C000624F21 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318314B82B9E06C000624F21 /* LoginView.swift */; };
 		318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318314BA2B9E06DE00624F21 /* LoginIntroView.swift */; };
+		31CFFF1B2B9EAFDA008BCAAD /* LoginButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		318314B62B9E06B400624F21 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		318314B82B9E06C000624F21 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		318314BA2B9E06DE00624F21 /* LoginIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIntroView.swift; sourceTree = "<group>"; };
+		31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +185,14 @@
 			path = MainTabView;
 			sourceTree = "<group>";
 		};
+		31CFFF192B9EAFCB008BCAAD /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
 		31D86CF32B9DAC4F006D7421 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 		31D86CFE2B9DAC50006D7421 /* Combine+UnitTest */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFF192B9EAFCB008BCAAD /* CustomUI */,
 				31D86D2E2B9DAC78006D7421 /* SwiftUI */,
 				318314A52B9DFB8800624F21 /* Structure */,
 				318314A72B9DFD8500624F21 /* Note */,
@@ -402,6 +413,7 @@
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
+				31CFFF1B2B9EAFDA008BCAAD /* LoginButtonStyle.swift in Sources */,
 				3183149F2B9DF59400624F21 /* DIContainer.swift in Sources */,
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
