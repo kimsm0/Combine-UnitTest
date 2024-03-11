@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserObject.swift
 //  Combine+UnitTest
 //
 //  Created by kimsoomin_mac2022 on 3/11/24.
@@ -7,28 +7,16 @@
 
 import Foundation
 
-struct User {
+struct UserObject: Codable {
     var id: String
     var name: String?
     var phoneNumber: String?
     var profileImageURL: String?
-    var descriptionText: String?    
+    var descriptionText: String?
 }
 
-extension User {
-    func toObject() -> UserObject {
+extension UserObject {
+    func toModel() -> User {
         .init(id: id, name: name, phoneNumber: phoneNumber, profileImageURL: profileImageURL, descriptionText: descriptionText)
-    }
-}
-
-//친구목록 dummy data
-
-extension User {
-    static var stub1: User {
-        .init(id: "user1_id", name: "test1")
-    }
-    
-    static var stub2: User {
-        .init(id: "user2_id", name: "test2")
     }
 }

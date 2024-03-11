@@ -43,6 +43,9 @@ class AuthenticatedViewModel: ObservableObject{
         case .googleLogin:
             isLoading = true
             container.services.authService.signInWithGoogle()
+                .flatMap{ user in
+                    self.container.services.userService.addUser(user)                    
+                }
                 .sink { completion in
                     if case .failure = completion{
                         self.isLoading = false 
