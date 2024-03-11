@@ -25,6 +25,10 @@
 		31CFFF1E2B9EB46A008BCAAD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 31CFFF1D2B9EB46A008BCAAD /* GoogleSignIn */; };
 		31CFFF202B9EB598008BCAAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF1F2B9EB598008BCAAD /* User.swift */; };
 		31CFFF222B9EB5E3008BCAAD /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */; };
+		31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF232B9ECA13008BCAAD /* MainTabType.swift */; };
+		31CFFF282B9ECAE7008BCAAD /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF272B9ECAE7008BCAAD /* ChatListView.swift */; };
+		31CFFF2A2B9ECAEC008BCAAD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF292B9ECAEC008BCAAD /* HomeView.swift */; };
+		31CFFF2C2B9ECDBF008BCAAD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF2B2B9ECDBF008BCAAD /* HomeViewModel.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -70,6 +74,10 @@
 		31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		31CFFF1F2B9EB598008BCAAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		31CFFF232B9ECA13008BCAAD /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
+		31CFFF272B9ECAE7008BCAAD /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		31CFFF292B9ECAEC008BCAAD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		31CFFF2B2B9ECDBF008BCAAD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 		318314992B9DF52E00624F21 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFF262B9ECAD7008BCAAD /* Chat */,
+				31CFFF252B9ECAD1008BCAAD /* Home */,
 				318314B52B9E06AA00624F21 /* MainTabView */,
 				318314A22B9DF64C00624F21 /* Authenticated */,
 			);
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				318314B62B9E06B400624F21 /* MainTabView.swift */,
+				31CFFF232B9ECA13008BCAAD /* MainTabType.swift */,
 			);
 			path = MainTabView;
 			sourceTree = "<group>";
@@ -199,6 +210,23 @@
 				31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		31CFFF252B9ECAD1008BCAAD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF292B9ECAEC008BCAAD /* HomeView.swift */,
+				31CFFF2B2B9ECDBF008BCAAD /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		31CFFF262B9ECAD7008BCAAD /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF272B9ECAE7008BCAAD /* ChatListView.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		31D86CF32B9DAC4F006D7421 = {
@@ -418,6 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31CFFF2C2B9ECDBF008BCAAD /* HomeViewModel.swift in Sources */,
 				31CFFF222B9EB5E3008BCAAD /* ServiceError.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
 				3183149D2B9DF55C00624F21 /* AuthenticationView.swift in Sources */,
@@ -427,12 +456,15 @@
 				31CFFF1B2B9EAFDA008BCAAD /* LoginButtonStyle.swift in Sources */,
 				31CFFF202B9EB598008BCAAD /* User.swift in Sources */,
 				3183149F2B9DF59400624F21 /* DIContainer.swift in Sources */,
+				31CFFF2A2B9ECAEC008BCAAD /* HomeView.swift in Sources */,
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
+				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				318314A12B9DF5BC00624F21 /* Services.swift in Sources */,
 				318314B92B9E06C000624F21 /* LoginView.swift in Sources */,
 				318314A42B9DF65900624F21 /* AuthenticatedViewModel.swift in Sources */,
 				318314B72B9E06B400624F21 /* MainTabView.swift in Sources */,
+				31CFFF282B9ECAE7008BCAAD /* ChatListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
