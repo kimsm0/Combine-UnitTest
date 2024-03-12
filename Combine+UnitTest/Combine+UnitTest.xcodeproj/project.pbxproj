@@ -36,6 +36,14 @@
 		31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF382B9F0A02008BCAAD /* UserObject.swift */; };
 		31CFFF3B2B9F0A5A008BCAAD /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3A2B9F0A5A008BCAAD /* DBError.swift */; };
 		31CFFF3D2B9F0C48008BCAAD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3C2B9F0C48008BCAAD /* Constant.swift */; };
+		31CFFF3F2B9F48D9008BCAAD /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3E2B9F48D9008BCAAD /* Phase.swift */; };
+		31CFFF412B9F49D5008BCAAD /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */; };
+		31CFFF442B9F4A1A008BCAAD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF432B9F4A1A008BCAAD /* LoadingView.swift */; };
+		31CFFF462B9F4A69008BCAAD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF452B9F4A69008BCAAD /* ErrorView.swift */; };
+		31CFFF482B9F4B96008BCAAD /* HomeModalDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF472B9F4B96008BCAAD /* HomeModalDestination.swift */; };
+		31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */; };
+		31CFFF4F2B9F4C6A008BCAAD /* FriendProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */; };
+		31CFFF512B9F4F1A008BCAAD /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF502B9F4F1A008BCAAD /* ContactService.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -91,6 +99,14 @@
 		31CFFF382B9F0A02008BCAAD /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		31CFFF3A2B9F0A5A008BCAAD /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		31CFFF3C2B9F0C48008BCAAD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		31CFFF3E2B9F48D9008BCAAD /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
+		31CFFF432B9F4A1A008BCAAD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		31CFFF452B9F4A69008BCAAD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		31CFFF472B9F4B96008BCAAD /* HomeModalDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModalDestination.swift; sourceTree = "<group>"; };
+		31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
+		31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileView.swift; sourceTree = "<group>"; };
+		31CFFF502B9F4F1A008BCAAD /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +180,7 @@
 		318314992B9DF52E00624F21 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFF492B9F4C2C008BCAAD /* Profile */,
 				31CFFF262B9ECAD7008BCAAD /* Chat */,
 				31CFFF252B9ECAD1008BCAAD /* Home */,
 				318314B52B9E06AA00624F21 /* MainTabView */,
@@ -179,6 +196,7 @@
 				318314B22B9E041000624F21 /* AuthenticationService.swift */,
 				31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */,
 				31CFFF352B9F08DA008BCAAD /* UserService.swift */,
+				31CFFF502B9F4F1A008BCAAD /* ContactService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -186,8 +204,10 @@
 		3183149B2B9DF53200624F21 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFF422B9F4A10008BCAAD /* View */,
 				3183149E2B9DF59400624F21 /* DIContainer.swift */,
 				31CFFF3C2B9F0C48008BCAAD /* Constant.swift */,
+				31CFFF3E2B9F48D9008BCAAD /* Phase.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -233,6 +253,7 @@
 			children = (
 				31CFFF292B9ECAEC008BCAAD /* HomeView.swift */,
 				31CFFF2B2B9ECDBF008BCAAD /* HomeViewModel.swift */,
+				31CFFF472B9F4B96008BCAAD /* HomeModalDestination.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -268,6 +289,25 @@
 				31CFFF382B9F0A02008BCAAD /* UserObject.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		31CFFF422B9F4A10008BCAAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */,
+				31CFFF432B9F4A1A008BCAAD /* LoadingView.swift */,
+				31CFFF452B9F4A69008BCAAD /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31CFFF492B9F4C2C008BCAAD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */,
+				31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		31D86CF32B9DAC4F006D7421 = {
@@ -500,22 +540,30 @@
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
+				31CFFF442B9F4A1A008BCAAD /* LoadingView.swift in Sources */,
+				31CFFF412B9F49D5008BCAAD /* PlaceHolderView.swift in Sources */,
 				31CFFF1B2B9EAFDA008BCAAD /* LoginButtonStyle.swift in Sources */,
+				31CFFF462B9F4A69008BCAAD /* ErrorView.swift in Sources */,
+				31CFFF512B9F4F1A008BCAAD /* ContactService.swift in Sources */,
 				31CFFF202B9EB598008BCAAD /* User.swift in Sources */,
 				3183149F2B9DF59400624F21 /* DIContainer.swift in Sources */,
 				31CFFF3D2B9F0C48008BCAAD /* Constant.swift in Sources */,
+				31CFFF3F2B9F48D9008BCAAD /* Phase.swift in Sources */,
 				31CFFF2A2B9ECAEC008BCAAD /* HomeView.swift in Sources */,
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				31CFFF362B9F08DA008BCAAD /* UserService.swift in Sources */,
 				31CFFF342B9F08B2008BCAAD /* UserDBRepository.swift in Sources */,
+				31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */,
 				318314A12B9DF5BC00624F21 /* Services.swift in Sources */,
 				318314B92B9E06C000624F21 /* LoginView.swift in Sources */,
+				31CFFF482B9F4B96008BCAAD /* HomeModalDestination.swift in Sources */,
 				318314A42B9DF65900624F21 /* AuthenticatedViewModel.swift in Sources */,
 				318314B72B9E06B400624F21 /* MainTabView.swift in Sources */,
 				31CFFF3B2B9F0A5A008BCAAD /* DBError.swift in Sources */,
 				31CFFF282B9ECAE7008BCAAD /* ChatListView.swift in Sources */,
+				31CFFF4F2B9F4C6A008BCAAD /* FriendProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,6 +733,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Combine+UnitTest/Resource/Combine-UnitTest-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ChatApp;
+				INFOPLIST_KEY_NSContactsUsageDescription = "친구 목록을 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -717,6 +766,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Combine+UnitTest/Resource/Combine-UnitTest-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = ChatApp;
+				INFOPLIST_KEY_NSContactsUsageDescription = "친구 목록을 가져옵니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

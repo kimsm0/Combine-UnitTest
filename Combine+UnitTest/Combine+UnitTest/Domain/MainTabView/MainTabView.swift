@@ -42,5 +42,8 @@ struct MainTabView: View {
 }
 
 #Preview {
+    
     MainTabView()
+        .environmentObject(DIContainer(services: StubService()))
+        .environmentObject(AuthenticatedViewModel(container: DIContainer(services: StubService())))
 }

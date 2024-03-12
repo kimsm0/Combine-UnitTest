@@ -12,10 +12,16 @@ class HomeViewModel: ObservableObject{
     
     enum Action{
         case getUser
+        case loadUser
+        case presentMyProfileView
+        case presentFriendProfileView(id: String)
+        case requestContacts
     }
     
     @Published var myUser: User?
     @Published var users: [User] = []
+    @Published var phase: Phase = .notRequested
+    @Published var modalDestination: HomeModalDestination?
     
     private var userId: String
     private var container: DIContainer
@@ -28,14 +34,40 @@ class HomeViewModel: ObservableObject{
     func send(action: Action){
         switch action{
         case .getUser:
+            phase = .loading
             container.services.userService.getUser(userId: userId)
-                .sink { completion in
-                    
+                .sink {[weak self] completion in
+                    if case .failure = completion {
+                        self?.phase = .fail
+                    }
                 } receiveValue: { [weak self] user in
                     self?.myUser = user
+                    self?.phase = .success
                 }.store(in: &subscriptions)
-
             return
+        case .loadUser:
+            phase = .loading
+            container.services.userService.loadUsers(myId: userId)
+                .sink { [weak self] completion in
+                    if case .failure = completion {
+                        self?.phase = .fail
+                    }
+                } receiveValue: {[weak self] users in
+                    self?.users = users
+                    self?.phase = .success
+                }.store(in: &subscriptions)
+        case .presentMyProfileView:
+            modalDestination = .myProfile
+        case .presentFriendProfileView(let id ):
+            modalDestination = .friendProfile(id: id)
+        case .requestContacts:
+            container.services.contactService.fetchContacts()
+                .sink { completion in
+                    
+                } receiveValue: { users in
+                    // TODO: db에 넣기 
+                }
+
         }
     }
 }
