@@ -1,5 +1,5 @@
 
-1. App(@main)에서 AuthenticationView를 호출
+🍏 App(@main)에서 AuthenticationView를 호출
 
 👉 AuthenticatedView
 유저가 로그인 인증을 진행했는지 확인 후 로그인 뷰 또는 메인 탭 뷰로 분기하여 노출함.
@@ -17,3 +17,12 @@ Dependency Injection Container 역할
 
 
 👉 Service Layer
+구글 로그인을 진행
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+🍏 User 구조
+
+View <-> ViewModel <-> UserService <-> UserDBRepository
+

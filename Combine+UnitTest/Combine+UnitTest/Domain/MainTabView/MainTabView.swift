@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject var authViewModel: AuthenticatedViewModel
+    @EnvironmentObject var container: DIContainer
+    @State private var selectedTab: MainTabType = .home
+    
     var body: some View {
-        Text("MainTabView!")
+        
+        TabView(selection: $selectedTab,
+                content:  {
+            
+                ForEach(MainTabType.allCases, id:\.self, content: { tab in
+                    Group{
+                        switch tab {
+                        case .home:
+                            HomeView(homeViewModel: .init(container: container, userId: authViewModel.userId ?? ""))
+                        case .chat:
+                            ChatListView()
+                        case .phone:
+                            ChatListView()
+                        }
+                    }.tabItem {
+                        Label(tab.titlle, image: tab.imageName(selected: tab == selectedTab))
+                    }
+                    .tag(tab)
+                })
+        })
+        .tint(.bkText)
+    }
+    
+    init(){
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color.bkText)
     }
 }
 
 #Preview {
+    
     MainTabView()
+        .environmentObject(DIContainer(services: StubService()))
+        .environmentObject(AuthenticatedViewModel(container: DIContainer(services: StubService())))
 }

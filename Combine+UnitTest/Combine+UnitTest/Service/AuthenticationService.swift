@@ -52,7 +52,7 @@ class AuthenticationService:  AuthenticationServiceType{
                 try Auth.auth().signOut()
                 promise(.success(Void()))
             }catch{
-                promise(.failure(error))
+                promise(.failure(ServiceError.error(error)))
             }
         }.eraseToAnyPublisher()
     }
