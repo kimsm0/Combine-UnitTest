@@ -46,6 +46,8 @@
 		31CFFF562BA18ECF008BCAAD /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF552BA18ECF008BCAAD /* MyProfileViewModel.swift */; };
 		31CFFF582BA1924D008BCAAD /* ProfileMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF572BA1924D008BCAAD /* ProfileMenuType.swift */; };
 		31CFFF5B2BA196CA008BCAAD /* MyProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF5A2BA196CA008BCAAD /* MyProfileEditView.swift */; };
+		31CFFF5D2BA1BB5C008BCAAD /* PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF5C2BA1BB5C008BCAAD /* PhotoPickerService.swift */; };
+		31CFFF602BA1BC3A008BCAAD /* PhotoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF5F2BA1BC3A008BCAAD /* PhotoImage.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -111,6 +113,8 @@
 		31CFFF552BA18ECF008BCAAD /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		31CFFF572BA1924D008BCAAD /* ProfileMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuType.swift; sourceTree = "<group>"; };
 		31CFFF5A2BA196CA008BCAAD /* MyProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEditView.swift; sourceTree = "<group>"; };
+		31CFFF5C2BA1BB5C008BCAAD /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
+		31CFFF5F2BA1BC3A008BCAAD /* PhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImage.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				31CFFF1F2B9EB598008BCAAD /* User.swift */,
+				31CFFF5F2BA1BC3A008BCAAD /* PhotoImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				318314B22B9E041000624F21 /* AuthenticationService.swift */,
 				31CFFF352B9F08DA008BCAAD /* UserService.swift */,
 				31CFFF502B9F4F1A008BCAAD /* ContactService.swift */,
+				31CFFF5C2BA1BB5C008BCAAD /* PhotoPickerService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 				31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
 				3183149D2B9DF55C00624F21 /* AuthenticationView.swift in Sources */,
+				31CFFF602BA1BC3A008BCAAD /* PhotoImage.swift in Sources */,
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
@@ -581,6 +588,7 @@
 				31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */,
 				31CFFF582BA1924D008BCAAD /* ProfileMenuType.swift in Sources */,
 				318314A12B9DF5BC00624F21 /* Services.swift in Sources */,
+				31CFFF5D2BA1BB5C008BCAAD /* PhotoPickerService.swift in Sources */,
 				318314B92B9E06C000624F21 /* LoginView.swift in Sources */,
 				31CFFF482B9F4B96008BCAAD /* HomeModalDestination.swift in Sources */,
 				318314A42B9DF65900624F21 /* AuthenticatedViewModel.swift in Sources */,

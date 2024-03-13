@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct MyProfileView: View {
     @Environment(\.dismiss) var dismiss
@@ -49,14 +50,14 @@ struct MyProfileView: View {
     }
     
     var profileView: some View {
-        Button(action: {
-            // TODO:
-        }, label: {
+        PhotosPicker(selection: $myProfileViewModel.imageSelection,
+                     matching: .images,
+                     label: {
             Image("profileBigBlue")
                 .resizable()
                 .frame(width: 80, height: 80)
                 .clipShape(Circle())
-        })
+        })        
     }
     
     var nameView: some View {
