@@ -53,11 +53,11 @@ struct MyProfileView: View {
         PhotosPicker(selection: $myProfileViewModel.imageSelection,
                      matching: .images,
                      label: {
-            Image("profileBigBlue")
-                .resizable()
+                    
+            URLImageView(urlString: myProfileViewModel.myUserInfo?.profileImageURL, placeHolderImageName: "profileBigBlue")
                 .frame(width: 80, height: 80)
-                .clipShape(Circle())
-        })        
+                .clipShape(Circle())            
+        })
     }
     
     var nameView: some View {

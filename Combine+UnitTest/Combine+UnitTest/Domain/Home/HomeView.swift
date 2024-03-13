@@ -117,10 +117,14 @@ struct HomeView: View {
             }
             Spacer()
             
-            Image("profileBigBlue")
-                .resizable()
+            URLImageView(urlString: homeViewModel.myUser?.profileImageURL, placeHolderImageName: "profileBigBlue")
                 .frame(width: 52, height: 52)
                 .clipShape(Circle())
+            
+//            Image("profileBigBlue")
+//                .resizable()
+//                .frame(width: 52, height: 52)
+//                .clipShape(Circle())
         }
         .padding(.horizontal, 38)
         .onTapGesture {
