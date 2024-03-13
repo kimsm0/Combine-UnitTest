@@ -23,7 +23,7 @@ class HomeViewModel: ObservableObject{
     @Published var phase: Phase = .notRequested
     @Published var modalDestination: HomeModalDestination?
     
-    private var userId: String
+    var userId: String
     private var container: DIContainer
     private var subscriptions = Set<AnyCancellable>()
     init(container: DIContainer, userId: String){
@@ -62,12 +62,18 @@ class HomeViewModel: ObservableObject{
             modalDestination = .friendProfile(id: id)
         case .requestContacts:
             container.services.contactService.fetchContacts()
-                .sink { completion in
-                    
-                } receiveValue: { users in
-                    // TODO: db에 넣기 
-                }
-
+                .flatMap{ users in
+                    self.container.services.userService.addUserFromContact(users: users)
+                }.flatMap{ _ in
+                    self.container.services.userService.loadUsers(myId: self.userId)
+                }.sink {[weak self] completion in
+                    if case .failure = completion {
+                        self?.phase = .fail
+                    }
+                } receiveValue: {[weak self] users in
+                    self?.users = users
+                    self?.phase = .success
+                }.store(in: &subscriptions)
         }
     }
 }

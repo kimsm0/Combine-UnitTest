@@ -1,17 +1,18 @@
-//
-//  Services.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/10/24.
-//
-
+/**
+ @class Services
+ @date 3/10/24
+ @writer kimsoomin
+ @brief Service Layer
+  ViewModel -> 호출
+ @update history
+ -
+ */
 import Foundation
 
 protocol ServiceType {
     var authService: AuthenticationServiceType { get set }
     var userService: UserServiceType { get set }
     var contactService: ContactServiceType { get set }
-    
 }
 
 class Services: ServiceType {
@@ -19,7 +20,7 @@ class Services: ServiceType {
     var userService: UserServiceType
     var contactService: ContactServiceType
     
-    init(authService: AuthenticationServiceType) {
+    init() {
         self.authService = AuthenticationService()
         self.userService = UserService(dbRepository: UserDBRepository())
         self.contactService = ContactService()

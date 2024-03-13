@@ -9,14 +9,10 @@ import Foundation
 import Combine
 import Contacts
 
-
-enum ContactError: Error{
-    case permissionDenied
-    
-}
 protocol ContactServiceType{
     func fetchContacts() -> AnyPublisher<[User], ServiceError>
 }
+
 
 
 class ContactService: ContactServiceType {
@@ -57,7 +53,7 @@ class ContactService: ContactServiceType {
         var users: [User] = []
         
         do {
-            try store.enumerateContacts(with: request, usingBlock: {[weak self] contact, _ in
+            try store.enumerateContacts(with: request, usingBlock: { contact, _ in
                 let name = CNContactFormatter.string(from: contact, style: .fullName) ?? ""
                 let phoneNumber = contact.phoneNumbers.first?.value.stringValue
                 

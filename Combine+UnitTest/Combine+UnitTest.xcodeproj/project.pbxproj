@@ -24,7 +24,6 @@
 		31CFFF1B2B9EAFDA008BCAAD /* LoginButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */; };
 		31CFFF1E2B9EB46A008BCAAD /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 31CFFF1D2B9EB46A008BCAAD /* GoogleSignIn */; };
 		31CFFF202B9EB598008BCAAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF1F2B9EB598008BCAAD /* User.swift */; };
-		31CFFF222B9EB5E3008BCAAD /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */; };
 		31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF232B9ECA13008BCAAD /* MainTabType.swift */; };
 		31CFFF282B9ECAE7008BCAAD /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF272B9ECAE7008BCAAD /* ChatListView.swift */; };
 		31CFFF2A2B9ECAEC008BCAAD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF292B9ECAEC008BCAAD /* HomeView.swift */; };
@@ -34,7 +33,6 @@
 		31CFFF342B9F08B2008BCAAD /* UserDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF332B9F08B2008BCAAD /* UserDBRepository.swift */; };
 		31CFFF362B9F08DA008BCAAD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF352B9F08DA008BCAAD /* UserService.swift */; };
 		31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF382B9F0A02008BCAAD /* UserObject.swift */; };
-		31CFFF3B2B9F0A5A008BCAAD /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3A2B9F0A5A008BCAAD /* DBError.swift */; };
 		31CFFF3D2B9F0C48008BCAAD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3C2B9F0C48008BCAAD /* Constant.swift */; };
 		31CFFF3F2B9F48D9008BCAAD /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF3E2B9F48D9008BCAAD /* Phase.swift */; };
 		31CFFF412B9F49D5008BCAAD /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */; };
@@ -44,6 +42,10 @@
 		31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */; };
 		31CFFF4F2B9F4C6A008BCAAD /* FriendProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */; };
 		31CFFF512B9F4F1A008BCAAD /* ContactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF502B9F4F1A008BCAAD /* ContactService.swift */; };
+		31CFFF542BA07E36008BCAAD /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF532BA07E36008BCAAD /* ErrorType.swift */; };
+		31CFFF562BA18ECF008BCAAD /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF552BA18ECF008BCAAD /* MyProfileViewModel.swift */; };
+		31CFFF582BA1924D008BCAAD /* ProfileMenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF572BA1924D008BCAAD /* ProfileMenuType.swift */; };
+		31CFFF5B2BA196CA008BCAAD /* MyProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFF5A2BA196CA008BCAAD /* MyProfileEditView.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -88,7 +90,6 @@
 		318314BA2B9E06DE00624F21 /* LoginIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIntroView.swift; sourceTree = "<group>"; };
 		31CFFF1A2B9EAFDA008BCAAD /* LoginButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonStyle.swift; sourceTree = "<group>"; };
 		31CFFF1F2B9EB598008BCAAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		31CFFF232B9ECA13008BCAAD /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
 		31CFFF272B9ECAE7008BCAAD /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
 		31CFFF292B9ECAEC008BCAAD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		31CFFF332B9F08B2008BCAAD /* UserDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBRepository.swift; sourceTree = "<group>"; };
 		31CFFF352B9F08DA008BCAAD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		31CFFF382B9F0A02008BCAAD /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
-		31CFFF3A2B9F0A5A008BCAAD /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		31CFFF3C2B9F0C48008BCAAD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		31CFFF3E2B9F48D9008BCAAD /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
@@ -107,6 +107,10 @@
 		31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileView.swift; sourceTree = "<group>"; };
 		31CFFF502B9F4F1A008BCAAD /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
+		31CFFF532BA07E36008BCAAD /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
+		31CFFF552BA18ECF008BCAAD /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		31CFFF572BA1924D008BCAAD /* ProfileMenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuType.swift; sourceTree = "<group>"; };
+		31CFFF5A2BA196CA008BCAAD /* MyProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileEditView.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,7 +198,6 @@
 			children = (
 				318314A02B9DF5BC00624F21 /* Services.swift */,
 				318314B22B9E041000624F21 /* AuthenticationService.swift */,
-				31CFFF212B9EB5E3008BCAAD /* ServiceError.swift */,
 				31CFFF352B9F08DA008BCAAD /* UserService.swift */,
 				31CFFF502B9F4F1A008BCAAD /* ContactService.swift */,
 			);
@@ -278,7 +281,6 @@
 			children = (
 				31CFFF372B9F09F8008BCAAD /* DTO */,
 				31CFFF332B9F08B2008BCAAD /* UserDBRepository.swift */,
-				31CFFF3A2B9F0A5A008BCAAD /* DBError.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -304,10 +306,29 @@
 		31CFFF492B9F4C2C008BCAAD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFF592BA196AE008BCAAD /* ModifyView */,
 				31CFFF4C2B9F4C46008BCAAD /* MyProfileView.swift */,
+				31CFFF5A2BA196CA008BCAAD /* MyProfileEditView.swift */,
+				31CFFF552BA18ECF008BCAAD /* MyProfileViewModel.swift */,
 				31CFFF4E2B9F4C6A008BCAAD /* FriendProfileView.swift */,
+				31CFFF572BA1924D008BCAAD /* ProfileMenuType.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		31CFFF522BA07DEA008BCAAD /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFF532BA07E36008BCAAD /* ErrorType.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		31CFFF592BA196AE008BCAAD /* ModifyView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModifyView;
 			sourceTree = "<group>";
 		};
 		31D86CF32B9DAC4F006D7421 = {
@@ -334,22 +355,23 @@
 		31D86CFE2B9DAC50006D7421 /* Combine+UnitTest */ = {
 			isa = PBXGroup;
 			children = (
-				31CFFF322B9F08A3008BCAAD /* Repository */,
+				31CFFF522BA07DEA008BCAAD /* Error */,
+				318314972B9DF4FE00624F21 /* App */,
+				3183149B2B9DF53200624F21 /* General */,
 				31CFFF192B9EAFCB008BCAAD /* CustomUI */,
+				31CFFF322B9F08A3008BCAAD /* Repository */,
+				318314982B9DF52B00624F21 /* Model */,
+				3183149A2B9DF53000624F21 /* Service */,
+				318314992B9DF52E00624F21 /* Domain */,
+				31D86D302B9DE0A7006D7421 /* Extension */,
+				318314962B9DF4E500624F21 /* Resource */,
+				31D86D052B9DAC51006D7421 /* Preview Content */,
+				318314B02B9E037A00624F21 /* GoogleService-Info.plist */,
 				31D86D2E2B9DAC78006D7421 /* SwiftUI */,
 				318314A52B9DFB8800624F21 /* Structure */,
 				318314A72B9DFD8500624F21 /* Note */,
-				318314972B9DF4FE00624F21 /* App */,
-				3183149B2B9DF53200624F21 /* General */,
-				3183149A2B9DF53000624F21 /* Service */,
-				318314992B9DF52E00624F21 /* Domain */,
-				318314982B9DF52B00624F21 /* Model */,
-				318314962B9DF4E500624F21 /* Resource */,
-				318314B02B9E037A00624F21 /* GoogleService-Info.plist */,
-				31D86D302B9DE0A7006D7421 /* Extension */,
-				31D86D0A2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld */,
-				31D86D052B9DAC51006D7421 /* Preview Content */,
 				31CFFF302B9EDBD1008BCAAD /* Json */,
+				31D86D0A2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld */,
 			);
 			path = "Combine+UnitTest";
 			sourceTree = "<group>";
@@ -534,7 +556,6 @@
 			files = (
 				31CFFF2C2B9ECDBF008BCAAD /* HomeViewModel.swift in Sources */,
 				31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */,
-				31CFFF222B9EB5E3008BCAAD /* ServiceError.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
 				3183149D2B9DF55C00624F21 /* AuthenticationView.swift in Sources */,
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
@@ -550,18 +571,21 @@
 				31CFFF3D2B9F0C48008BCAAD /* Constant.swift in Sources */,
 				31CFFF3F2B9F48D9008BCAAD /* Phase.swift in Sources */,
 				31CFFF2A2B9ECAEC008BCAAD /* HomeView.swift in Sources */,
+				31CFFF5B2BA196CA008BCAAD /* MyProfileEditView.swift in Sources */,
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				31CFFF362B9F08DA008BCAAD /* UserService.swift in Sources */,
 				31CFFF342B9F08B2008BCAAD /* UserDBRepository.swift in Sources */,
+				31CFFF562BA18ECF008BCAAD /* MyProfileViewModel.swift in Sources */,
 				31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */,
+				31CFFF582BA1924D008BCAAD /* ProfileMenuType.swift in Sources */,
 				318314A12B9DF5BC00624F21 /* Services.swift in Sources */,
 				318314B92B9E06C000624F21 /* LoginView.swift in Sources */,
 				31CFFF482B9F4B96008BCAAD /* HomeModalDestination.swift in Sources */,
 				318314A42B9DF65900624F21 /* AuthenticatedViewModel.swift in Sources */,
+				31CFFF542BA07E36008BCAAD /* ErrorType.swift in Sources */,
 				318314B72B9E06B400624F21 /* MainTabView.swift in Sources */,
-				31CFFF3B2B9F0A5A008BCAAD /* DBError.swift in Sources */,
 				31CFFF282B9ECAE7008BCAAD /* ChatListView.swift in Sources */,
 				31CFFF4F2B9F4C6A008BCAAD /* FriendProfileView.swift in Sources */,
 			);

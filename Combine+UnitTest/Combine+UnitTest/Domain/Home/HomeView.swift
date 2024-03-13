@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var container: DIContainer
     @StateObject var homeViewModel: HomeViewModel
     
     var body: some View {
@@ -16,7 +17,7 @@ struct HomeView: View {
                 .fullScreenCover(item: $homeViewModel.modalDestination, content: {
                     switch $0 {
                     case .myProfile:
-                            MyProfileView()
+                        MyProfileView(myProfileViewModel: MyProfileViewModel(container: container, userId: homeViewModel.userId))
                     case .friendProfile(let id):
                         FriendProfileView()
                     }
@@ -161,7 +162,7 @@ struct HomeView: View {
                 .padding(.bottom, 30)
             
             Button(action: {
-                // TODO:
+                homeViewModel.send(action: .requestContacts)
             }, label: {
                 Text("친구 추가")
                     .font(.system(size: 14))

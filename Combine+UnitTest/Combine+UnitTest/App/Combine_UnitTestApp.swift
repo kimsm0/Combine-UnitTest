@@ -12,13 +12,12 @@ struct Combine_UnitTestApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    @StateObject var container: DIContainer = .init(services: Services(authService: AuthenticationService()))
+    @StateObject var container: DIContainer = .init(services: Services())
     
     var body: some Scene {
         WindowGroup { //UIKit의 SceneDelegate
             AuthenticationView(authenticatedViewModel: .init(container: container))
                 .environmentObject(container)
-                
         }
     }
 }

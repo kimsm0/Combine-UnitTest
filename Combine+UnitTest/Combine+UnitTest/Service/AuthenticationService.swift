@@ -1,23 +1,17 @@
-//
-//  AuthenticationService.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/11/24.
-//
-
+/**
+ @class AuthenticationService
+ @date 3/11/24
+ @writer kimsoomin
+ @brief 로그인 진행
+ @update history
+ -
+ */
 import Foundation
 import Combine
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 
-
-enum AuthenticationError: Error {
-    case clientIDError
-    case tokenError
-    case invalidated
-    
-}
 protocol AuthenticationServiceType {
     func checkAuthenticationState() -> String?
     func signInWithGoogle() -> AnyPublisher<User, ServiceError>
@@ -115,14 +109,26 @@ extension AuthenticationService {
 
 class StubAuthenticationService:  AuthenticationServiceType{
     func checkAuthenticationState() -> String? {
-        return nil
-    }    
+        if let user = Auth.auth().currentUser {
+            return user.uid
+        }
+        return nil 
+    }
     
     func signInWithGoogle() -> AnyPublisher<User, ServiceError>{
-        Empty().eraseToAnyPublisher()
+        Future{ promise in
+            promise(.success(User.init(id: "user_test_id", name: "test", phoneNumber: "010-1111-2222")))
+        }.eraseToAnyPublisher()
     }
     
     func logout() -> AnyPublisher<Void, ServiceError> {
-        Empty().eraseToAnyPublisher()
+        Future { promise in
+            do {
+                try Auth.auth().signOut()
+                promise(.success(Void()))
+            }catch{
+                promise(.failure(ServiceError.error(error)))
+            }
+        }.eraseToAnyPublisher()
     }
 }
