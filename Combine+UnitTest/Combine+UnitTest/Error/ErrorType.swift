@@ -32,3 +32,9 @@ enum ContactError: Error{
     case permissionDenied
     
 }
+
+// MARK:
+enum PhotoPickerError: Error {
+    case importFailed
+    
+}
