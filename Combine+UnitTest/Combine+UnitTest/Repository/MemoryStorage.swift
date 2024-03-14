@@ -1,16 +1,17 @@
-//
-//  MemoryStorage.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class MemoryStorage
+ @date 3/13/24
+ @writer kimsoomin
+ @brief
+ @update history
+ -
+ */
 import Foundation
 import UIKit
 
 protocol MemoryStorageType {
-    func value(for key: String) -> UIImage?
-    func store(for key: String, image: UIImage)
+    func value(for key: String) -> UIImage? //get
+    func store(for key: String, image: UIImage) //set
 }
 
 class MemoryStorage: MemoryStorageType {

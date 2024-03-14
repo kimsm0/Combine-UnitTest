@@ -1,19 +1,22 @@
-//
-//  MainTabView.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/11/24.
-//
-
+/**
+ @class MainTabView
+ @date 3/11/24
+ @writer kimsoomin
+ @brief AuthenticatedViewModel ( 뷰모델 1개 뷰 n개 ) 바인딩
+ 
+ @update history
+ -
+ */
 import SwiftUI
 
 struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthenticatedViewModel
     @EnvironmentObject var container: DIContainer
+    @EnvironmentObject var navigationRouter: NavigationRouter
+    
     @State private var selectedTab: MainTabType = .home
     
     var body: some View {
-        
         TabView(selection: $selectedTab,
                 content:  {
             
@@ -21,7 +24,7 @@ struct MainTabView: View {
                     Group{
                         switch tab {
                         case .home:
-                            HomeView(homeViewModel: .init(container: container, userId: authViewModel.userId ?? ""))
+                            HomeView(homeViewModel: .init(container: container, navigationRouter: navigationRouter, userId: authViewModel.userId ?? ""))
                         case .chat:
                             ChatListView()
                         case .phone:
@@ -46,4 +49,5 @@ struct MainTabView: View {
     MainTabView()
         .environmentObject(DIContainer(services: StubService()))
         .environmentObject(AuthenticatedViewModel(container: DIContainer(services: StubService())))
+        .environmentObject(NavigationRouter())
 }

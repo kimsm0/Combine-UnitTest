@@ -13,9 +13,7 @@ enum AuthenticationState {
     case authenticated
 }
 
-
 class AuthenticatedViewModel: ObservableObject{
-    
     enum Action {
         case checkAuthenticationState
         case googleLogin
@@ -29,6 +27,7 @@ class AuthenticatedViewModel: ObservableObject{
     private var container: DIContainer
     var userId: String?
     private var subscriptions = Set<AnyCancellable>()
+    
     init(container: DIContainer) {
         self.container = container
     }
@@ -39,6 +38,9 @@ class AuthenticatedViewModel: ObservableObject{
             if let uid = container.services.authService.checkAuthenticationState() {
                 self.userId = uid
                 self.authenticationState = .authenticated
+            }else{
+                self.userId = nil
+                self.authenticationState = .unauthenticated
             }
         case .googleLogin:
             isLoading = true

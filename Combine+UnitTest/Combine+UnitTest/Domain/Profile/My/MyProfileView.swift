@@ -22,6 +22,7 @@ struct MyProfileView: View {
                 
                 VStack(spacing: 0){
                     Spacer()
+                        
                     profileView
                         .padding(.bottom, 16)
                     nameView
@@ -43,7 +44,7 @@ struct MyProfileView: View {
                     })
                 })
             }
-            .task { //onAppear가 호출되기 전에 호출됨
+            .task { //뷰가 나타날 때 진행해야할 비동기 작업을 넣는다. 
                 await myProfileViewModel.getUser()
             }
         }

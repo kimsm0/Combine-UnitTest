@@ -14,7 +14,6 @@ protocol ContactServiceType{
 }
 
 
-
 class ContactService: ContactServiceType {
     func fetchContacts() -> AnyPublisher<[User], ServiceError> {
         Future{ [weak self] promise in

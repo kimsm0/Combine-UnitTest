@@ -34,12 +34,10 @@ fileprivate struct ImageCacheView: View {
     @StateObject var imageCacheViewModel: ImageCacheViewModel
     
     let placeHolderImageName: String
-    
-
+            
     var placeHolderImage: UIImage {
         UIImage(named: placeHolderImageName) ?? UIImage()
-        
-    }
+    }       
     
     var body: some View {
         Image(uiImage: imageCacheViewModel.loadedImage ?? placeHolderImage)
