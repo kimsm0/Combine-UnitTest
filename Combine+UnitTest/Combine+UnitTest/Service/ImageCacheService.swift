@@ -1,10 +1,14 @@
-//
-//  ImageCacheService.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class ImageCacheService
+ @date 3/13/24
+ @writer kimsoomin
+ @brief
+ 1. Memory Cache를 확인
+ 2. Disk Cache 확인 ( File Manager)
+ 3. URLSession request
+ @update history
+ -
+ */
 import UIKit
 import Combine
 
@@ -22,11 +26,7 @@ class ImageCacheService: ImageCacheServiceType{
     }
     
     func image(for key: String) -> AnyPublisher<UIImage?, Never> {
-        /*
-         1. check memory storage
-         2. check disk storage
-         3. url session request -> store
-         */
+        
         imageFromMemoryStorage(for: key)
             .flatMap{ image -> AnyPublisher<UIImage?, Never> in
                 if let image {

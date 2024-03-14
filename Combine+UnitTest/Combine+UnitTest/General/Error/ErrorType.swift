@@ -2,7 +2,7 @@
  @class ErrorType
  @date 3/12/24
  @writer kimsoomin
- @brief 앱 전체에서 사용되는 에러 타입 열거형 정의.
+ @brief 앱 전체에서 사용되는 에러 타입 열거형을 서비스 별로 정의.
  @update history
  -
  */

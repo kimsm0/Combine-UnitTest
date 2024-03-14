@@ -1,10 +1,12 @@
-//
-//  DiskStorage.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class DiskStorage
+ @date 3/13/24
+ @writer kimsoomin
+ @brief
+ - Core Data, Userf Defaults, FileManager 중 FileManager 를 이용한 Disk Cache 구현
+ @update history
+ -
+ */
 import Foundation
 import UIKit
 import CommonCrypto

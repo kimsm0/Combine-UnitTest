@@ -37,7 +37,7 @@ class AuthenticationService:  AuthenticationServiceType{
                     promise(.failure(.error(error)))
                 }
             })
-        }.eraseToAnyPublisher()
+        }.eraseToAnyPublisher() //eraseToAnyPublisher은 지금까지의 데이터 스트림이 어떠했던 최종적인 형태의 Publisher를 리턴
     }
     
     func logout() -> AnyPublisher<Void, ServiceError> {

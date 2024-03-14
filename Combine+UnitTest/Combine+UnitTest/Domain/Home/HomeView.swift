@@ -9,22 +9,32 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var container: DIContainer
+    @EnvironmentObject var navigationRouter: NavigationRouter
     @StateObject var homeViewModel: HomeViewModel
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $navigationRouter.destination){
             contentView
-                .fullScreenCover(item: $homeViewModel.modalDestination, content: {
+                .fullScreenCover(item: $homeViewModel.modalDestination) {
                     switch $0 {
                     case .myProfile:
                         MyProfileView(myProfileViewModel: MyProfileViewModel(container: container, userId: homeViewModel.userId))
                     case .friendProfile(let id):
-                        FriendProfileView()
+                        FriendProfileView(friendProfileViewModel: FriendProfileViewModel(userId: id, container: container))
                     }
-                })
-        }
+                }
+                .navigationDestination(for: NavigationDestination.self) {
+                    switch $0 {
+                    case .chat :
+                        ChatView()
+                    case .search:
+                        SearchView()
+                
+                    }
+                }
+        }        
     }
-    
+        
     @ViewBuilder
     var contentView: some View {
         switch homeViewModel.phase {
@@ -39,14 +49,37 @@ struct HomeView: View {
         case .success:
             loadedView
                 .toolbar{
-                    Image("top_bookmark")
-                    Image("top_notification")
-                    Image("top_person_add")
-                    Button(action: {
-                        
-                    }, label: {
-                        Image("top_setting")
-                    })
+                    ToolbarItemGroup (placement: .topBarTrailing) {
+                        HStack(spacing: 0) {
+                            Button(action: {
+                                
+                            }, label: {
+                                Image("top_bookmark")
+                            }).frame(width:26)
+                            
+                            Button(action: {
+                                
+                            }, label: {
+                                Image("top_notification")
+                            }).frame(width:26)
+                            
+                            Button(action: {
+                                
+                            }, label: {
+                                Image("top_person_add")
+                            }).frame(width:26)
+                            
+                            Button(action: {
+                                
+                            }, label: {
+                                Image("top_setting")
+                            }).frame(width:26)
+                            
+                        }
+                        .frame(height: 30)
+                        .padding(.trailing, 20)
+                    }
+                    
                 }
         case .fail:
             ErrorView()
@@ -56,6 +89,9 @@ struct HomeView: View {
     
     var loadedView: some View {
         ScrollView{
+            Spacer()
+                .frame(height: 16)
+            
             profileView
                 .padding(.bottom, 30)
             
@@ -65,25 +101,28 @@ struct HomeView: View {
                 Text("친구")
                     .font(.system(size: 14))
                     .foregroundColor(.bkText)
-                
                 Spacer()
-                
-            }.padding(.horizontal, 30)
-                .padding(.top, 30)
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, 30)
+            .padding(.bottom, 10)
             
             // TODO: 친구 목록
             if homeViewModel.users.isEmpty {
                 Spacer(minLength: 89)
-                
                 emptyView
+                
             }else{
-                LazyVStack{ //무한 스크롤 가능 영역 = lazyvstack 사용 
+                //화면에 표시할 뷰들을 지연하여 로드하여 효율적으로 처리하기 위한 컨테이너
+                //아이템 재사용, 무한 스크롤 가능 영역 = lazyvstack 사용
+                LazyVStack{
                     ForEach(homeViewModel.users, id: \.id){ user in
                         Button(action: {
                             homeViewModel.send(action: .presentFriendProfileView(id: user.id))
                         }, label: {
                             HStack (spacing: 8) {
-                                Image("profileSmallPink")
+                                let image = user.id.count % 2 != 0 ? "profileSmallPink" : "profileSmallBlue"
+                                Image(image)
                                     .resizable()
                                     .frame(width: 40, height: 40)
                                     .clipShape(Circle())
@@ -120,11 +159,6 @@ struct HomeView: View {
             URLImageView(urlString: homeViewModel.myUser?.profileImageURL, placeHolderImageName: "profileBigBlue")
                 .frame(width: 52, height: 52)
                 .clipShape(Circle())
-            
-//            Image("profileBigBlue")
-//                .resizable()
-//                .frame(width: 52, height: 52)
-//                .clipShape(Circle())
         }
         .padding(.horizontal, 38)
         .onTapGesture {
@@ -133,24 +167,25 @@ struct HomeView: View {
     }
     
     var searchButton: some View {
-        ZStack{
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(height: 36)
-                .background(Color.greyCool)
-                .cornerRadius(5)
-            
-            HStack{
-                Text("검색")
-                    .font(.system(size: 12))
-                    .foregroundColor(.greyLight)
-                
-                Spacer()
-                
-            }.padding(.leading, 22)
-            
-        }.padding(.horizontal, 30)
         
+        NavigationLink(value: NavigationDestination.search, label: {
+            ZStack{
+                Rectangle()
+                    .foregroundColor(.greyCool)
+                    .frame(height: 36)
+                    .cornerRadius(5)
+                
+                HStack{
+                    Text("검색")
+                        .font(.system(size: 12))
+                        .foregroundColor(.greyDeep)
+                    
+                    Spacer()
+                    
+                }.padding(.leading, 22)
+                
+            }.padding(.horizontal, 30)
+        })
     }
     
     var emptyView: some View {
@@ -183,5 +218,9 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(homeViewModel: .init(container: .init(services: StubService()), userId: "user1_id"))
+    
+    HomeView(homeViewModel: .init(container: .init(services: StubService()), navigationRouter: NavigationRouter(), userId: "user1_id"))
+        .environmentObject(NavigationRouter())
+        .environmentObject(DIContainer(services: Services()))
+        
 }
