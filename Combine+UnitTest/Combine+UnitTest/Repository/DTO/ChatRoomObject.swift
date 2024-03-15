@@ -10,6 +10,12 @@ import Foundation
 struct ChatRoomObject: Codable {
     var chatRoomId: String
     var lastMessage: String?
-    var otherUserName: String
-    var otherUseId: String
+    var friendUserName: String
+    var friendUserId: String
+}
+
+extension ChatRoomObject {
+    func toModel() -> ChatRoom {
+        .init(chatRoomId: chatRoomId, lastMessage: lastMessage, friendUserName: friendUserName, friendUserId: friendUserId)
+    }
 }

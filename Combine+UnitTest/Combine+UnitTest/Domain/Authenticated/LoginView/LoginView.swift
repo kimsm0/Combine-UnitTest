@@ -68,5 +68,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
-        .environmentObject(AuthenticatedViewModel(container: .init(services: Services())))
+        .environmentObject(AuthenticatedViewModel(container: .init(services: StubService())))
 }
