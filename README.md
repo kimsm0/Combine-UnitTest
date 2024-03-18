@@ -10,12 +10,11 @@ Firebase : Auth, Database, Storage, Messaging
 🍏 비동기 
 Swift Concurency 구현해보기 
 
+🍏 Core Data 사용해보기 
+
 🍏 Unit테스트 코드 작성해보기.
 XCTest
 Test Double
-
-🍏 Remote Notification 구현
-APNs
 
 🍏 접근성에 대한 개념 익히기.
 
