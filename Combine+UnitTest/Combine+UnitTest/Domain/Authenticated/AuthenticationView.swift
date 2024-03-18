@@ -11,6 +11,7 @@ struct AuthenticationView: View {
     @EnvironmentObject var container: DIContainer
     @StateObject var authenticatedViewModel: AuthenticatedViewModel
     @StateObject var navigationRouter: NavigationRouter
+    @StateObject var searchDataController: SearchDataController
     
     var body: some View {
         VStack{
@@ -20,6 +21,7 @@ struct AuthenticationView: View {
                     .environmentObject(authenticatedViewModel)
             case .authenticated:
                 MainTabView()
+                    .environment(\.managedObjectContext,  searchDataController.persistantContainer.viewContext)
                     .environmentObject(authenticatedViewModel)
                     .environmentObject(navigationRouter)
             }
@@ -32,5 +34,7 @@ struct AuthenticationView: View {
 
 #Preview {
     AuthenticationView(
-        authenticatedViewModel: .init(container: DIContainer(services: StubService())), navigationRouter: .init())
+        authenticatedViewModel: .init(container: DIContainer(services: StubService())), navigationRouter: .init(),
+        searchDataController: SearchDataController()
+    )
 }

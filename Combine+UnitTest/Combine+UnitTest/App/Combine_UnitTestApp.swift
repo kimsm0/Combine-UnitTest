@@ -17,7 +17,8 @@ struct Combine_UnitTestApp: App {
     var body: some Scene {
         WindowGroup { //UIKit의 SceneDelegate
             AuthenticationView(authenticatedViewModel: .init(container: container),
-                               navigationRouter: .init())
+                               navigationRouter: .init(),
+                               searchDataController: SearchDataController())
                 .environmentObject(container)
         }
     }
