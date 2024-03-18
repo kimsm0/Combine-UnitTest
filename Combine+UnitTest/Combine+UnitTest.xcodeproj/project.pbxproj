@@ -76,6 +76,10 @@
 		31CFFFAC2BA408E5008BCAAD /* Date+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFAB2BA408E5008BCAAD /* Date+Ex.swift */; };
 		31CFFFAF2BA40BCA008BCAAD /* ChatItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFAE2BA40BCA008BCAAD /* ChatItemView.swift */; };
 		31CFFFB12BA4147D008BCAAD /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB02BA4147D008BCAAD /* KeyboardToolbar.swift */; };
+		31CFFFB32BA7F9CD008BCAAD /* ChatDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB22BA7F9CD008BCAAD /* ChatDBRepository.swift */; };
+		31CFFFB72BA7FA3B008BCAAD /* ChatObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB62BA7FA3B008BCAAD /* ChatObject.swift */; };
+		31CFFFB92BA7FC2C008BCAAD /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB82BA7FC2C008BCAAD /* ChatService.swift */; };
+		31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -169,6 +173,10 @@
 		31CFFFAB2BA408E5008BCAAD /* Date+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ex.swift"; sourceTree = "<group>"; };
 		31CFFFAE2BA40BCA008BCAAD /* ChatItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemView.swift; sourceTree = "<group>"; };
 		31CFFFB02BA4147D008BCAAD /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
+		31CFFFB22BA7F9CD008BCAAD /* ChatDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDBRepository.swift; sourceTree = "<group>"; };
+		31CFFFB62BA7FA3B008BCAAD /* ChatObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatObject.swift; sourceTree = "<group>"; };
+		31CFFFB82BA7FC2C008BCAAD /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageItemView.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +276,7 @@
 				31CFFF682BA1C051008BCAAD /* UploadService.swift */,
 				31CFFF6A2BA1C68E008BCAAD /* ImageCacheService.swift */,
 				31CFFF8F2BA1EEA7008BCAAD /* ChatRoomService.swift */,
+				31CFFFB82BA7FC2C008BCAAD /* ChatService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -360,6 +369,7 @@
 				31CFFF6E2BA1C76D008BCAAD /* DiskStorage.swift */,
 				31CFFF8D2BA1EE6D008BCAAD /* ChatRoomDBRepository.swift */,
 				31CFFF9D2BA3C87C008BCAAD /* DBReference.swift */,
+				31CFFFB22BA7F9CD008BCAAD /* ChatDBRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -369,6 +379,7 @@
 			children = (
 				31CFFF382B9F0A02008BCAAD /* UserObject.swift */,
 				31CFFF8B2BA1EE42008BCAAD /* ChatRoomObject.swift */,
+				31CFFFB62BA7FA3B008BCAAD /* ChatObject.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -461,6 +472,7 @@
 			children = (
 				31CFFFAE2BA40BCA008BCAAD /* ChatItemView.swift */,
 				31CFFFB02BA4147D008BCAAD /* KeyboardToolbar.swift */,
+				31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -693,6 +705,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				31CFFF2C2B9ECDBF008BCAAD /* HomeViewModel.swift in Sources */,
+				31CFFFB32BA7F9CD008BCAAD /* ChatDBRepository.swift in Sources */,
+				31CFFFB72BA7FA3B008BCAAD /* ChatObject.swift in Sources */,
 				31CFFF8C2BA1EE42008BCAAD /* ChatRoomObject.swift in Sources */,
 				31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
@@ -729,10 +743,12 @@
 				31CFFF9C2BA3C757008BCAAD /* ChatRoom.swift in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31CFFF9A2BA1F25C008BCAAD /* ChatView.swift in Sources */,
+				31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */,
 				31CFFF692BA1C052008BCAAD /* UploadService.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				31CFFFA02BA3D2DF008BCAAD /* ChatListViewModel.swift in Sources */,
 				31CFFFA82BA40091008BCAAD /* ChatViewModel.swift in Sources */,
+				31CFFFB92BA7FC2C008BCAAD /* ChatService.swift in Sources */,
 				31CFFF362B9F08DA008BCAAD /* UserService.swift in Sources */,
 				31CFFF342B9F08B2008BCAAD /* UserDBRepository.swift in Sources */,
 				31CFFF8E2BA1EE6D008BCAAD /* ChatRoomDBRepository.swift in Sources */,

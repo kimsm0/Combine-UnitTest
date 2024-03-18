@@ -38,3 +38,7 @@ enum PhotoPickerError: Error {
     case importFailed
     
 }
+
+enum UploadError: Error {
+    case uploadError(Error)
+}
