@@ -82,6 +82,9 @@
 		31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */; };
 		31CFFFBD2BA833A3008BCAAD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBC2BA833A3008BCAAD /* SearchBar.swift */; };
 		31CFFFBF2BA833EE008BCAAD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */; };
+		31CFFFC52BA84721008BCAAD /* Search.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC32BA84721008BCAAD /* Search.xcdatamodeld */; };
+		31CFFFC72BA84786008BCAAD /* SearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC62BA84786008BCAAD /* SearchDataController.swift */; };
+		31CFFFC92BA848B7008BCAAD /* RecentSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC82BA848B7008BCAAD /* RecentSearchView.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -181,6 +184,9 @@
 		31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageItemView.swift; sourceTree = "<group>"; };
 		31CFFFBC2BA833A3008BCAAD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		31CFFFC42BA84721008BCAAD /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
+		31CFFFC62BA84786008BCAAD /* SearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataController.swift; sourceTree = "<group>"; };
+		31CFFFC82BA848B7008BCAAD /* RecentSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchView.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 		318314962B9DF4E500624F21 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFFC32BA84721008BCAAD /* Search.xcdatamodeld */,
 				31D86D352B9DE6A8006D7421 /* Combine-UnitTest-Info.plist */,
 				31D86D032B9DAC51006D7421 /* Assets.xcassets */,
 				318314942B9DEE7B00624F21 /* LaunchScreen.storyboard */,
@@ -294,6 +301,7 @@
 				3183149E2B9DF59400624F21 /* DIContainer.swift */,
 				31CFFF3C2B9F0C48008BCAAD /* Constant.swift */,
 				31CFFF3E2B9F48D9008BCAAD /* Phase.swift */,
+				31CFFFC62BA84786008BCAAD /* SearchDataController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -469,6 +477,7 @@
 			children = (
 				31CFFF972BA1F242008BCAAD /* SearchView.swift */,
 				31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */,
+				31CFFFC82BA848B7008BCAAD /* RecentSearchView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -724,6 +733,7 @@
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
+				31CFFFC92BA848B7008BCAAD /* RecentSearchView.swift in Sources */,
 				31CFFFBF2BA833EE008BCAAD /* SearchViewModel.swift in Sources */,
 				31CFFF6B2BA1C68E008BCAAD /* ImageCacheService.swift in Sources */,
 				31CFFFAA2BA400FC008BCAAD /* ChatData.swift in Sources */,
@@ -737,6 +747,7 @@
 				31CFFF462B9F4A69008BCAAD /* ErrorView.swift in Sources */,
 				31CFFF512B9F4F1A008BCAAD /* ContactService.swift in Sources */,
 				31CFFF202B9EB598008BCAAD /* User.swift in Sources */,
+				31CFFFC72BA84786008BCAAD /* SearchDataController.swift in Sources */,
 				31CFFFB12BA4147D008BCAAD /* KeyboardToolbar.swift in Sources */,
 				3183149F2B9DF59400624F21 /* DIContainer.swift in Sources */,
 				31CFFF672BA1BF90008BCAAD /* UploadProvider.swift in Sources */,
@@ -749,6 +760,7 @@
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
 				31CFFF9C2BA3C757008BCAAD /* ChatRoom.swift in Sources */,
 				31CFFFBD2BA833A3008BCAAD /* SearchBar.swift in Sources */,
+				31CFFFC52BA84721008BCAAD /* Search.xcdatamodeld in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31CFFF9A2BA1F25C008BCAAD /* ChatView.swift in Sources */,
 				31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */,
@@ -1160,6 +1172,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		31CFFFC32BA84721008BCAAD /* Search.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				31CFFFC42BA84721008BCAAD /* Search.xcdatamodel */,
+			);
+			currentVersion = 31CFFFC42BA84721008BCAAD /* Search.xcdatamodel */;
+			path = Search.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		31D86D0A2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

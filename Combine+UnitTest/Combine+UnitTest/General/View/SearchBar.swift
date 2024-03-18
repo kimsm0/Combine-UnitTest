@@ -10,10 +10,12 @@ import SwiftUI
 struct SearchBar: UIViewRepresentable {
     @Binding var text: String
     @Binding var shouldBecomeFirstResponde: Bool
+    var tabbedSearchButton: (()-> Void)?
     
-    init(text: Binding<String>, shouldBecomeFirstResponde: Binding<Bool>) {
+    init(text: Binding<String>, shouldBecomeFirstResponde: Binding<Bool>, tabbedSearchButton: (()-> Void)?) {
         self._text = text
         self._shouldBecomeFirstResponde = shouldBecomeFirstResponde
+        self.tabbedSearchButton =  tabbedSearchButton
     }
     
     func makeUIView(context: Context) -> UISearchBar {
@@ -29,7 +31,9 @@ struct SearchBar: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(text: $text, shouldBecomeFirstResponde: $shouldBecomeFirstResponde)
+        Coordinator(text: $text, 
+                    shouldBecomeFirstResponde: $shouldBecomeFirstResponde,
+                    tabbedSearchButton: tabbedSearchButton)
     }
     
 }
@@ -38,9 +42,14 @@ extension SearchBar {
     class Coordinator: NSObject, UISearchBarDelegate {
         @Binding var text: String
         @Binding var shouldBecomeFirstResponde: Bool
-        init(text: Binding<String>, shouldBecomeFirstResponde: Binding<Bool>) {
+        var tabbedSearchButton: (()-> Void)?
+        
+        init(text: Binding<String>,
+             shouldBecomeFirstResponde: Binding<Bool>,
+             tabbedSearchButton: (()-> Void)?) {
             self._text = text
             self._shouldBecomeFirstResponde = shouldBecomeFirstResponde
+            self.tabbedSearchButton = tabbedSearchButton
         }
         
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -57,6 +66,9 @@ extension SearchBar {
         
         func setSearchBarText(_ searchBar: UISearchBar, text: String){
             searchBar.text = text
+        }
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            tabbedSearchButton?()
         }
     }
     
