@@ -25,10 +25,11 @@ struct MainTabView: View {
                         switch tab {
                         case .home:
                             HomeView(homeViewModel: .init(container: container, navigationRouter: navigationRouter, userId: authViewModel.userId ?? ""))
+                            
                         case .chat:
-                            ChatListView()
+                            ChatListView(chatListViewModel: .init(container: container, userId: authViewModel.userId ?? ""))
                         case .phone:
-                            ChatListView()
+                            Color.red
                         }
                     }.tabItem {
                         Label(tab.titlle, image: tab.imageName(selected: tab == selectedTab))

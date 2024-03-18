@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum UploadsourceType {
     case chat(chatRoomId: String)
@@ -22,6 +23,7 @@ enum UploadsourceType {
 }
 
 protocol UploadServiceType {
+    func uploadImage(source: UploadsourceType, data: Data) -> AnyPublisher<URL, ServiceError>
     func uploadImage(source: UploadsourceType, data: Data) async throws -> URL
 }
 
@@ -37,11 +39,21 @@ class UploadService: UploadServiceType {
         return url
     }
     
+    func uploadImage(source: UploadsourceType, data: Data) -> AnyPublisher<URL, ServiceError> {
+        provider.upload(path: source.path, data: data, fileName: UUID().uuidString)
+            .mapError{ ServiceError.error($0) }
+            .eraseToAnyPublisher()
+    }
+    
 }
 
 class StupUploadService: UploadServiceType {
     
     func uploadImage(source: UploadsourceType, data: Data) async throws -> URL {
         return URL(string: "")!
+    }
+    
+    func uploadImage(source: UploadsourceType, data: Data) -> AnyPublisher<URL, ServiceError> {
+        return Empty().eraseToAnyPublisher()
     }
 }

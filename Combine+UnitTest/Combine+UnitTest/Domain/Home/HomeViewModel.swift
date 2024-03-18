@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject{
         case presentMyProfileView
         case presentFriendProfileView(id: String)
         case requestContacts
+        case goToChat(friend: User)
     }
     
     @Published var myUser: User?
@@ -77,6 +78,15 @@ class HomeViewModel: ObservableObject{
                     self?.users = users
                     self?.phase = .success
                 }.store(in: &subscriptions)
+        case let .goToChat(friend):
+            container.services.chatRoomService.createChatRoomIfNeeded(myUserId: userId, friendUserId: friend.id, friendUserName: friend.name ?? "")
+                .sink { completion in
+                    
+                } receiveValue: {[weak self] room in
+                    guard let weakSelf = self else { return }
+                    weakSelf.navigationRouter.push(to: .chat(chatRoomId: room.chatRoomId, myUserId: weakSelf.userId, friendUserId: friend.id))
+                }.store(in: &subscriptions)
+
         }
     }
 }

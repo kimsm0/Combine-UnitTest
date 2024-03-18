@@ -20,17 +20,13 @@ struct HomeView: View {
                     case .myProfile:
                         MyProfileView(myProfileViewModel: MyProfileViewModel(container: container, userId: homeViewModel.userId))
                     case .friendProfile(let id):
-                        FriendProfileView(friendProfileViewModel: FriendProfileViewModel(userId: id, container: container))
+                        FriendProfileView(friendProfileViewModel: FriendProfileViewModel(userId: id, container: container)){ friend in
+                            homeViewModel.send(action: .goToChat(friend: friend))
+                        }
                     }
                 }
                 .navigationDestination(for: NavigationDestination.self) {
-                    switch $0 {
-                    case .chat :
-                        ChatView()
-                    case .search:
-                        SearchView()
-                
-                    }
+                    NavigationRoutingView(destination: $0)
                 }
         }        
     }
@@ -95,7 +91,9 @@ struct HomeView: View {
             profileView
                 .padding(.bottom, 30)
             
-            searchButton
+            NavigationLink(value: NavigationDestination.search(userId: homeViewModel.userId), label: {
+                SearchButtonView()
+            })
             
             HStack{
                 Text("친구")
@@ -166,27 +164,7 @@ struct HomeView: View {
         }
     }
     
-    var searchButton: some View {
-        
-        NavigationLink(value: NavigationDestination.search, label: {
-            ZStack{
-                Rectangle()
-                    .foregroundColor(.greyCool)
-                    .frame(height: 36)
-                    .cornerRadius(5)
-                
-                HStack{
-                    Text("검색")
-                        .font(.system(size: 12))
-                        .foregroundColor(.greyDeep)
-                    
-                    Spacer()
-                    
-                }.padding(.leading, 22)
-                
-            }.padding(.horizontal, 30)
-        })
-    }
+    
     
     var emptyView: some View {
         VStack{

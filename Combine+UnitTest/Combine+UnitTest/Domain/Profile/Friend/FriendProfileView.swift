@@ -10,7 +10,7 @@ import SwiftUI
 struct FriendProfileView: View {
     @StateObject var friendProfileViewModel: FriendProfileViewModel
     @Environment(\.dismiss) var dismiss
-    //var goToChat: (User) -> Void
+    var goToChat: (User) -> Void
     
     var body: some View {
         NavigationStack{
@@ -61,12 +61,22 @@ struct FriendProfileView: View {
             ForEach(FriendProfileMenuType.allCases, id: \.self) { menu in
                 
                 VStack(spacing: 0) {
-                    Image(menu.iconImageName)
-                        .frame(width: 50, height: 50)
-                    
-                    Text(menu.description)
-                        .font(.system(size: 12))
-                        .foregroundColor(.whiteFix)
+                    Button(action: {
+                        // TODO:
+                        if menu == .chat, let friend = friendProfileViewModel.user {
+                            dismiss()
+                            goToChat(friend)
+                        }
+                    }, label: {
+                        VStack{
+                            Image(menu.iconImageName)
+                                .frame(width: 50, height: 50)
+                            
+                            Text(menu.description)
+                                .font(.system(size: 12))
+                                .foregroundColor(.whiteFix)
+                        }
+                    })
                 }
                 .padding(.bottom, 58)
             }
@@ -75,6 +85,8 @@ struct FriendProfileView: View {
 }
 
 #Preview {
-    FriendProfileView(friendProfileViewModel: .init(userId: "test_userId", container: .init(services: Services())))
+    FriendProfileView(friendProfileViewModel: .init(userId: "test_userId", container: .init(services: StubService()))) { _ in
+        
+    }
         
 }
