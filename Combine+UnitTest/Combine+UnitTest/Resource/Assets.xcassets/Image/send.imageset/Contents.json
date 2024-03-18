@@ -3,6 +3,16 @@
     {
       "filename" : "send.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "send_dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

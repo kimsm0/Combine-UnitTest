@@ -3,6 +3,16 @@
     {
       "filename" : "Property 1=Default-2.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "phone.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

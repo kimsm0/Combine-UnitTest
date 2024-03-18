@@ -3,6 +3,16 @@
     {
       "filename" : "Property 1=Default.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "message.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -3,6 +3,16 @@
     {
       "filename" : "Property 1=off.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "home_dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

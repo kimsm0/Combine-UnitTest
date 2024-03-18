@@ -3,6 +3,16 @@
     {
       "filename" : "bookmark.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "bookmark_dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

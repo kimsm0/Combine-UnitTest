@@ -85,6 +85,12 @@
 		31CFFFC52BA84721008BCAAD /* Search.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC32BA84721008BCAAD /* Search.xcdatamodeld */; };
 		31CFFFC72BA84786008BCAAD /* SearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC62BA84786008BCAAD /* SearchDataController.swift */; };
 		31CFFFC92BA848B7008BCAAD /* RecentSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFC82BA848B7008BCAAD /* RecentSearchView.swift */; };
+		31CFFFCC2BA87EA6008BCAAD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFCB2BA87EA6008BCAAD /* SettingView.swift */; };
+		31CFFFCE2BA87EB0008BCAAD /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFCD2BA87EB0008BCAAD /* SettingViewModel.swift */; };
+		31CFFFD02BA87EB6008BCAAD /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFCF2BA87EB6008BCAAD /* SettingItem.swift */; };
+		31CFFFD22BA8823E008BCAAD /* AppearanceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFD12BA8823E008BCAAD /* AppearanceType.swift */; };
+		31CFFFD42BA8830A008BCAAD /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFD32BA8830A008BCAAD /* SectionItem.swift */; };
+		31CFFFD62BA8877D008BCAAD /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFD52BA8877D008BCAAD /* AppearanceController.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -187,6 +193,12 @@
 		31CFFFC42BA84721008BCAAD /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
 		31CFFFC62BA84786008BCAAD /* SearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataController.swift; sourceTree = "<group>"; };
 		31CFFFC82BA848B7008BCAAD /* RecentSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchView.swift; sourceTree = "<group>"; };
+		31CFFFCB2BA87EA6008BCAAD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		31CFFFCD2BA87EB0008BCAAD /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		31CFFFCF2BA87EB6008BCAAD /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		31CFFFD12BA8823E008BCAAD /* AppearanceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceType.swift; sourceTree = "<group>"; };
+		31CFFFD32BA8830A008BCAAD /* SectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		31CFFFD52BA8877D008BCAAD /* AppearanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -259,6 +271,7 @@
 				31CFFF5F2BA1BC3A008BCAAD /* PhotoImage.swift */,
 				31CFFF9B2BA3C757008BCAAD /* ChatRoom.swift */,
 				31CFFFA92BA400FC008BCAAD /* ChatData.swift */,
+				31CFFFD32BA8830A008BCAAD /* SectionItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +279,7 @@
 		318314992B9DF52E00624F21 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFFCA2BA87E9B008BCAAD /* Setting */,
 				31CFFF962BA1F235008BCAAD /* Search */,
 				31CFFF492B9F4C2C008BCAAD /* Profile */,
 				31CFFF262B9ECAD7008BCAAD /* Chat */,
@@ -302,6 +316,8 @@
 				31CFFF3C2B9F0C48008BCAAD /* Constant.swift */,
 				31CFFF3E2B9F48D9008BCAAD /* Phase.swift */,
 				31CFFFC62BA84786008BCAAD /* SearchDataController.swift */,
+				31CFFFD12BA8823E008BCAAD /* AppearanceType.swift */,
+				31CFFFD52BA8877D008BCAAD /* AppearanceController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -490,6 +506,16 @@
 				31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		31CFFFCA2BA87E9B008BCAAD /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFFCB2BA87EA6008BCAAD /* SettingView.swift */,
+				31CFFFCD2BA87EB0008BCAAD /* SettingViewModel.swift */,
+				31CFFFCF2BA87EB6008BCAAD /* SettingItem.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		31D86CF32B9DAC4F006D7421 = {
@@ -721,11 +747,13 @@
 			files = (
 				31CFFF2C2B9ECDBF008BCAAD /* HomeViewModel.swift in Sources */,
 				31CFFFB32BA7F9CD008BCAAD /* ChatDBRepository.swift in Sources */,
+				31CFFFD22BA8823E008BCAAD /* AppearanceType.swift in Sources */,
 				31CFFFB72BA7FA3B008BCAAD /* ChatObject.swift in Sources */,
 				31CFFF8C2BA1EE42008BCAAD /* ChatRoomObject.swift in Sources */,
 				31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
 				3183149D2B9DF55C00624F21 /* AuthenticationView.swift in Sources */,
+				31CFFFD42BA8830A008BCAAD /* SectionItem.swift in Sources */,
 				31CFFF712BA1CBE6008BCAAD /* Data+Ex.swift in Sources */,
 				31CFFF782BA1D1D0008BCAAD /* ImageCacheView.swift in Sources */,
 				31CFFF6D2BA1C6E8008BCAAD /* MemoryStorage.swift in Sources */,
@@ -740,6 +768,7 @@
 				31CFFF9E2BA3C87C008BCAAD /* DBReference.swift in Sources */,
 				31CFFF882BA1EC1F008BCAAD /* FriendProfileViewModel.swift in Sources */,
 				31CFFF902BA1EEA7008BCAAD /* ChatRoomService.swift in Sources */,
+				31CFFFCC2BA87EA6008BCAAD /* SettingView.swift in Sources */,
 				31CFFF932BA1F017008BCAAD /* NavigationDestination.swift in Sources */,
 				31CFFF442B9F4A1A008BCAAD /* LoadingView.swift in Sources */,
 				31CFFF412B9F49D5008BCAAD /* PlaceHolderView.swift in Sources */,
@@ -762,11 +791,13 @@
 				31CFFFBD2BA833A3008BCAAD /* SearchBar.swift in Sources */,
 				31CFFFC52BA84721008BCAAD /* Search.xcdatamodeld in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
+				31CFFFCE2BA87EB0008BCAAD /* SettingViewModel.swift in Sources */,
 				31CFFF9A2BA1F25C008BCAAD /* ChatView.swift in Sources */,
 				31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */,
 				31CFFF692BA1C052008BCAAD /* UploadService.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				31CFFFA02BA3D2DF008BCAAD /* ChatListViewModel.swift in Sources */,
+				31CFFFD62BA8877D008BCAAD /* AppearanceController.swift in Sources */,
 				31CFFFA82BA40091008BCAAD /* ChatViewModel.swift in Sources */,
 				31CFFFB92BA7FC2C008BCAAD /* ChatService.swift in Sources */,
 				31CFFF362B9F08DA008BCAAD /* UserService.swift in Sources */,
@@ -776,6 +807,7 @@
 				31CFFF6F2BA1C76D008BCAAD /* DiskStorage.swift in Sources */,
 				31CFFF4D2B9F4C46008BCAAD /* MyProfileView.swift in Sources */,
 				31CFFF982BA1F242008BCAAD /* SearchView.swift in Sources */,
+				31CFFFD02BA87EB6008BCAAD /* SettingItem.swift in Sources */,
 				31CFFF582BA1924D008BCAAD /* ProfileMenuType.swift in Sources */,
 				318314A12B9DF5BC00624F21 /* Services.swift in Sources */,
 				31CFFF5D2BA1BB5C008BCAAD /* PhotoPickerService.swift in Sources */,
