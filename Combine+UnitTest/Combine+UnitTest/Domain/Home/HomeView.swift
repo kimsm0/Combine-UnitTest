@@ -91,7 +91,7 @@ struct HomeView: View {
             profileView
                 .padding(.bottom, 30)
             
-            NavigationLink(value: NavigationDestination.search, label: {
+            NavigationLink(value: NavigationDestination.search(userId: homeViewModel.userId), label: {
                 SearchButtonView()
             })
             

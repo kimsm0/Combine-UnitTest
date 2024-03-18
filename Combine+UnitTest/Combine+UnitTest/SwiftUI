@@ -202,3 +202,29 @@ Dependencies
     
     dependency가 vieew(body)에 주입되고,  서브 뷰의 트리거를 통해 properites의 값이 변경되면, view는 새로운 body를 생성한다.
     
+------------------------------------------------------------------------------------------------------------------------------
+
+UIViewRepresntable (protocol)
+
+동작방식
+
+UIKit으로 생성한 뷰를 SwiftUI 뷰 안에 포함시킬 수 있는 프로토콜을 제공함.
+
+UIView - UIviewRepresentable
+UIVieewController = UIViewControllerRepresentable
+
+프로토콜의 필수 메서드
+1. Make View 메서드 : SWiftUI에서 표시하려는 뷰를 생성하는 메서드.
+2. Update View 메서드 : 현재 구성에 맞게 업데이트. SwiftUI에 의해 업데이트 요청될 때마다 호출됨 ( body가 업데이트 될 때마다 호출됨.)
+3. Dismantle view 메서드 (옵셔널) :
+
+
+Representable Context
+프로퍼티
+1.Coordinator : SwiftUI와 뷰간의 조정을 돕고, target action, delegate, data source 를 사용할 수 있음
+2.Environment : SwiftUI환경에 대한 정보를 제공, 시스템환경, 사용자 정의 환경 등.
+3.Transaction : SwiftUI에서 애니메이션이 있었는지 여부를 알려준다.
+
+Make Coordinator -> Make View -> Update View -> Dismantle View
+
+

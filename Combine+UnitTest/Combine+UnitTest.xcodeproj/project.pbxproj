@@ -80,6 +80,8 @@
 		31CFFFB72BA7FA3B008BCAAD /* ChatObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB62BA7FA3B008BCAAD /* ChatObject.swift */; };
 		31CFFFB92BA7FC2C008BCAAD /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFB82BA7FC2C008BCAAD /* ChatService.swift */; };
 		31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */; };
+		31CFFFBD2BA833A3008BCAAD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBC2BA833A3008BCAAD /* SearchBar.swift */; };
+		31CFFFBF2BA833EE008BCAAD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -177,6 +179,8 @@
 		31CFFFB62BA7FA3B008BCAAD /* ChatObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatObject.swift; sourceTree = "<group>"; };
 		31CFFFB82BA7FC2C008BCAAD /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		31CFFFBA2BA8073B008BCAAD /* ChatImageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatImageItemView.swift; sourceTree = "<group>"; };
+		31CFFFBC2BA833A3008BCAAD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -391,6 +395,7 @@
 				31CFFF402B9F49D5008BCAAD /* PlaceHolderView.swift */,
 				31CFFF432B9F4A1A008BCAAD /* LoadingView.swift */,
 				31CFFF452B9F4A69008BCAAD /* ErrorView.swift */,
+				31CFFFBC2BA833A3008BCAAD /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				31CFFF972BA1F242008BCAAD /* SearchView.swift */,
+				31CFFFBE2BA833EE008BCAAD /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -718,6 +724,7 @@
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
+				31CFFFBF2BA833EE008BCAAD /* SearchViewModel.swift in Sources */,
 				31CFFF6B2BA1C68E008BCAAD /* ImageCacheService.swift in Sources */,
 				31CFFFAA2BA400FC008BCAAD /* ChatData.swift in Sources */,
 				31CFFF9E2BA3C87C008BCAAD /* DBReference.swift in Sources */,
@@ -741,6 +748,7 @@
 				31CFFF5B2BA196CA008BCAAD /* MyProfileEditView.swift in Sources */,
 				31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */,
 				31CFFF9C2BA3C757008BCAAD /* ChatRoom.swift in Sources */,
+				31CFFFBD2BA833A3008BCAAD /* SearchBar.swift in Sources */,
 				31CFFF242B9ECA13008BCAAD /* MainTabType.swift in Sources */,
 				31CFFF9A2BA1F25C008BCAAD /* ChatView.swift in Sources */,
 				31CFFFBB2BA8073B008BCAAD /* ChatImageItemView.swift in Sources */,
