@@ -3,6 +3,16 @@
     {
       "filename" : "person_add.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "person_add_dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

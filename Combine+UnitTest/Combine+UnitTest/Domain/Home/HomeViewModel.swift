@@ -13,10 +13,10 @@ class HomeViewModel: ObservableObject{
     enum Action{
         case getUser
         case loadUser
-        case presentMyProfileView
         case presentFriendProfileView(id: String)
         case requestContacts
         case goToChat(friend: User)
+        case presentView(HomeModalDestination)
     }
     
     @Published var myUser: User?
@@ -59,9 +59,7 @@ class HomeViewModel: ObservableObject{
                 } receiveValue: {[weak self] users in
                     self?.users = users
                     self?.phase = .success
-                }.store(in: &subscriptions)
-        case .presentMyProfileView:
-            modalDestination = .myProfile
+                }.store(in: &subscriptions)        
         case .presentFriendProfileView(let id ):
             modalDestination = .friendProfile(id: id)
         case .requestContacts:
@@ -87,6 +85,8 @@ class HomeViewModel: ObservableObject{
                     weakSelf.navigationRouter.push(to: .chat(chatRoomId: room.chatRoomId, myUserId: weakSelf.userId, friendUserId: friend.id))
                 }.store(in: &subscriptions)
 
+        case let .presentView(destination):
+            modalDestination = destination
         }
     }
 }

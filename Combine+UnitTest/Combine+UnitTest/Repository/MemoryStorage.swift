@@ -25,7 +25,6 @@ class MemoryStorage: MemoryStorageType {
     func store(for key: String, image: UIImage) {
         cache.setObject(image, forKey: NSString(string: key))
     }
-    
 }
 
 class StubMemoryStorage: MemoryStorageType {

@@ -3,6 +3,16 @@
     {
       "filename" : "search_chat.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "search_chat_dark.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

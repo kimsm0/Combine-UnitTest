@@ -1,10 +1,11 @@
-//
-//  UserObject.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/11/24.
-//
-
+/**
+ @class UserObject
+ @date 3/11/24
+ @writer kimsoomin
+ @brief 
+ @update history
+ -
+ */
 import Foundation
 
 struct UserObject: Codable {

@@ -1,10 +1,11 @@
-//
-//  NavigationRoutingView.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/15/24.
-//
-
+/**
+ @class NavigationRoutingView
+ @date 3/15/24
+ @writer kimsoomin
+ @brief Navigation Stack을 공통으로 관리하기 위한 뷰
+ @update history
+ -
+ */
 import SwiftUI
 
 struct NavigationRoutingView: View {

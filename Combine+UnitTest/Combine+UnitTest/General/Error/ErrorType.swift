@@ -33,12 +33,12 @@ enum ContactError: Error{
     
 }
 
-// MARK:
+// MARK: PhotoPicker 연동 로직에서 사용
 enum PhotoPickerError: Error {
     case importFailed
-    
 }
 
+// MARK: Data Upload 로직에서 사용 
 enum UploadError: Error {
     case uploadError(Error)
 }

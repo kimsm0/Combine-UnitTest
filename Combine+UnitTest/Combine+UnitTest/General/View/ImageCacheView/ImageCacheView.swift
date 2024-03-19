@@ -1,12 +1,14 @@
-//
-//  ImageCacheView.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
+/**
+ @class ImageCacheView
+ @date 3/13/24
+ @writer kimsoomin
+ @brief url 이미지를 보여주는 이미지 뷰 클래스
+ 메모리 캐시 -> 디스크 캐시 -> url 순서로 확인, 진행하여 이미지를 셋팅한다. 
+ @update history
+ -
+ */
 
 import SwiftUI
-
 
 struct URLImageView: View {
     @EnvironmentObject var container: DIContainer

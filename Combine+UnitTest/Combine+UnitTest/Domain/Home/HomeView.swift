@@ -23,6 +23,8 @@ struct HomeView: View {
                         FriendProfileView(friendProfileViewModel: FriendProfileViewModel(userId: id, container: container)){ friend in
                             homeViewModel.send(action: .goToChat(friend: friend))
                         }
+                    case .setting:
+                        SettingView(settingViewModel: SettingViewModel())
                     }
                 }
                 .navigationDestination(for: NavigationDestination.self) {
@@ -66,7 +68,7 @@ struct HomeView: View {
                             }).frame(width:26)
                             
                             Button(action: {
-                                
+                                homeViewModel.send(action: .presentView(.setting))
                             }, label: {
                                 Image("top_setting")
                             }).frame(width:26)
@@ -160,7 +162,7 @@ struct HomeView: View {
         }
         .padding(.horizontal, 38)
         .onTapGesture {
-            homeViewModel.send(action: .presentMyProfileView)
+            homeViewModel.send(action: .presentView(.myProfile))
         }
     }
     

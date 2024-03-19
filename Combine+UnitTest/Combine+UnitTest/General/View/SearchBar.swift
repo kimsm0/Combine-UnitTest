@@ -1,10 +1,12 @@
-//
-//  SearchButton.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/18/24.
-//
-
+/**
+ @class SearchButton
+ @date 3/18/24
+ @writer kimsoomin
+ @brief SwiftUI에서 UIKit을 사용하기 위해 UIViewRepresentable 체택하여 구현한 클래스
+ Custom UISearchBar 구현 
+ @update history
+ -
+ */
 import SwiftUI
 
 struct SearchBar: UIViewRepresentable {
@@ -35,7 +37,6 @@ struct SearchBar: UIViewRepresentable {
                     shouldBecomeFirstResponde: $shouldBecomeFirstResponde,
                     tabbedSearchButton: tabbedSearchButton)
     }
-    
 }
 
 extension SearchBar {

@@ -1,10 +1,11 @@
-//
-//  ChatRoomObject.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class ChatRoomObject
+ @date 3/13/24
+ @writer kimsoomin
+ @brief
+ @update history
+ -
+ */
 import Foundation
 
 struct ChatRoomObject: Codable {

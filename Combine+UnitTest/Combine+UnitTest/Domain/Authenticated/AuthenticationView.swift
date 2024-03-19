@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+//최상단 뷰
+
 struct AuthenticationView: View {
     @EnvironmentObject var container: DIContainer
     @StateObject var authenticatedViewModel: AuthenticatedViewModel
     @StateObject var navigationRouter: NavigationRouter
     @StateObject var searchDataController: SearchDataController
+    @StateObject var appearanceController: AppearanceController
     
     var body: some View {
         VStack{
@@ -24,17 +27,19 @@ struct AuthenticationView: View {
                     .environment(\.managedObjectContext,  searchDataController.persistantContainer.viewContext)
                     .environmentObject(authenticatedViewModel)
                     .environmentObject(navigationRouter)
+                    .environmentObject(appearanceController)
             }
         }
         .onAppear{
             authenticatedViewModel.send(action: .checkAuthenticationState)
         }
+        .preferredColorScheme(appearanceController.appearance.colorScheme)
     }
 }
 
 #Preview {
     AuthenticationView(
         authenticatedViewModel: .init(container: DIContainer(services: StubService())), navigationRouter: .init(),
-        searchDataController: SearchDataController()
-    )
+        searchDataController: .init(),
+        appearanceController: .init(0))
 }

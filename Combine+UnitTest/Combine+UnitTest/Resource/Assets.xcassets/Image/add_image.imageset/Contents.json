@@ -3,6 +3,16 @@
     {
       "filename" : "image_add.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "image_add 1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -115,6 +115,7 @@ extension ChatViewModel {
         //url
         //chat > url add
         guard let image else { return }
+        
         container.services.photoPickerService.loadTransferable(from: image)
             .flatMap{ data in
                 self.container.services.uploadService.uploadImage(source: .chat(chatRoomId: self.chatRoomId), data: data)
@@ -123,7 +124,6 @@ extension ChatViewModel {
                 return self.container.services.chatService.addChat(chat, to: self.chatRoomId)
             }
             .flatMap{ chat in
-                
                 self.container.services.chatRoomService.updateChatRoomLastMessage(chatRoomId: self.chatRoomId,
                                                                                   myUserId: self.myUserId,
                                                                                   myUserName: self.myUser?.name ?? "",
@@ -136,8 +136,6 @@ extension ChatViewModel {
                 
             })
             .store(in: &subscription)
-        
     }
-    
 }
 

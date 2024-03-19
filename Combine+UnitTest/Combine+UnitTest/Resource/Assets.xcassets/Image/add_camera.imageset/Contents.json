@@ -3,6 +3,16 @@
     {
       "filename" : "photo_camera.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "photo_camera 1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

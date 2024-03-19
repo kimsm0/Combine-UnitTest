@@ -1,14 +1,15 @@
-//
-//  UserDBRepository.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/11/24.
-//
-
+/**
+ @class UserDBRepository
+ @date 3/11/24
+ @writer kimsoomin
+ @brief UserDB 연동 클래스
+ - 새로운 유저 추가, 유저를 DB에서 검색하거나 DB에 있는 유저 리스트를 가지고 오거나 하는 등의 유저 관련  로직을 진행한다.
+ @update history
+ -
+ */
 import Foundation
 import Combine
 import FirebaseDatabase
-
 
 protocol UserDBRepositoryType{
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
@@ -78,6 +79,7 @@ class UserDBRepository: UserDBRepositoryType {
         return userObject
     }
     
+    
     func loadUsers() -> AnyPublisher<[UserObject], DBError> {
         Future<Any?, DBError> {[weak self] promise in
             self?.db.child(DBKey.Users).getData { error, snapshot in
@@ -111,7 +113,7 @@ class UserDBRepository: UserDBRepositoryType {
     
     func addUserFromContact(users: [UserObject]) -> AnyPublisher<Void, DBError> {
         Publishers.Zip(users.publisher, users.publisher)
-            .compactMap{ origin, converted in
+            .compactMap{ origin, converted in                
                 if let converted = try? JSONEncoder().encode(converted){
                     return (origin, converted)
                 }else {
@@ -169,3 +171,4 @@ class UserDBRepository: UserDBRepositoryType {
         .eraseToAnyPublisher()
     }
 }
+
