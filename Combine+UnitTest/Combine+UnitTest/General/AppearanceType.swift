@@ -1,10 +1,11 @@
-//
-//  AppearanceType.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/18/24.
-//
-
+/**
+ @class AppearanceType
+ @date 3/18/24
+ @writer kimsoomin
+ @brief Custom Appearance 타입 정의
+ @update history
+ -
+ */
 import SwiftUI
 
 enum AppearanceType: Int, CaseIterable, SettingItemable {

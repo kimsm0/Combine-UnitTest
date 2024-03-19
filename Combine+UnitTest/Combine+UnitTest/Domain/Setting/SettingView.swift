@@ -18,7 +18,7 @@ struct SettingView: View {
             List{
                 ForEach(settingViewModel.sectionItems){ section in
                     Section {
-                        ForEach(section.settings){ setting in
+                        ForEach(section.items){ setting in
                             Button(action: {
                                 if let type = setting.item as? AppearanceType {
                                     appearanceController.changeAppearance(type)

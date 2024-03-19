@@ -453,8 +453,8 @@
 		31CFFF742BA1D1AE008BCAAD /* ImageCacheView */ = {
 			isa = PBXGroup;
 			children = (
-				31CFFF752BA1D1BF008BCAAD /* ImageCacheViewModel.swift */,
 				31CFFF772BA1D1D0008BCAAD /* ImageCacheView.swift */,
+				31CFFF752BA1D1BF008BCAAD /* ImageCacheViewModel.swift */,
 			);
 			path = ImageCacheView;
 			sourceTree = "<group>";

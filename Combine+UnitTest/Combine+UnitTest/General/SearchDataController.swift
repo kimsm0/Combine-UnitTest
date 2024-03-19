@@ -1,10 +1,11 @@
-//
-//  SearchDataController.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/18/24.
-//
-
+/**
+ @class SearchDataController
+ @date 3/18/24
+ @writer kimsoomin
+ @brief  CoreData에 저장된 최근 검색어 데이터 로드 싱글톤 클래스 
+ @update history
+ -
+ */
 import Foundation
 import CoreData
 

@@ -1,10 +1,11 @@
-//
-//  Phase.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/11/24.
-//
-
+/**
+ @class Phase
+ @date 3/11/24
+ @writer kimsoomin
+ @brief UI 렌더링시 구분값으로 사용할 케이스 정의 
+ @update history
+ -
+ */
 import Foundation
 
 enum Phase{

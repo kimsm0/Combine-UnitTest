@@ -92,25 +92,6 @@ class ChatRoomDBRepository: ChatRoomDBRepositoryType {
         }.eraseToAnyPublisher()
     }
     
-//    func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoomObject], DBError> {
-//        reference.fetch(key: DBKey.ChatRooms, path: myUserId)
-//            .flatMap { value in
-//                if let dic = value as? [String: [String: Any]] {
-//                    return Just(dic)
-//                        .tryMap { try JSONSerialization.data(withJSONObject: $0) }
-//                        .decode(type: [String: ChatRoomObject].self, decoder: JSONDecoder())
-//                        .map { $0.values.map { $0 as ChatRoomObject } }
-//                        .mapError { DBError.error($0) }
-//                        .eraseToAnyPublisher()
-//                } else if value == nil {
-//                    return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
-//                } else {
-//                    return Fail(error: .invalidate).eraseToAnyPublisher()
-//                }
-//            }
-//            .eraseToAnyPublisher()
-//    }
-//    
     func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, friendUserId: String, lastMessage: String) -> AnyPublisher<Void, DBError> {
         
         Future{[weak self] promise in

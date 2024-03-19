@@ -1,10 +1,11 @@
-//
-//  UploadProvider.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class UploadProvider
+ @date 3/13/24
+ @writer kimsoomin
+ @brief FirebaseStorage에 file upload
+ @update history
+ -
+ */
 import Foundation
 import Combine
 import FirebaseStorage
@@ -34,6 +35,5 @@ class UploadProvider:  UploadProviderType {
                 ref.downloadURL()
             }.mapError{ UploadError.uploadError($0) }
             .eraseToAnyPublisher()
-        
     }
 }

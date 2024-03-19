@@ -1,10 +1,11 @@
-//
-//  NavigationDestination.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class NavigationDestination
+ @date 3/13/24
+ @writer kimsoomin
+ @brief Navigation Stack 으로 연결되는 뷰 타입 정의
+ @update history
+ -
+ */
 import Foundation
 
 enum NavigationDestination: Hashable {

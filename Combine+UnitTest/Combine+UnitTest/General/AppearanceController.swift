@@ -1,10 +1,11 @@
-//
-//  AppearanceController.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/18/24.
-//
-
+/**
+ @class AppearanceController
+ @date 3/18/24
+ @writer kimsoomin
+ @brief Appearance 데이터 관리 싱글톤 클래스 
+ @update history
+ -
+ */
 import Foundation
 
 class AppearanceController: ObservableObject {
@@ -18,6 +19,4 @@ class AppearanceController: ObservableObject {
     func changeAppearance(_ type: AppearanceType){
         appearance = type
     }
-    
-
 }

@@ -1,10 +1,11 @@
-//
-//  ImageCacheViewModel.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/13/24.
-//
-
+/**
+ @class ImageCacheViewModel
+ @date 3/13/24
+ @writer kimsoomin
+ @brief
+ @update history
+ -
+ */
 import UIKit
 import Combine
 
