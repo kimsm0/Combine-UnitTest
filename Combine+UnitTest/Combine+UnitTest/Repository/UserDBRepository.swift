@@ -9,7 +9,7 @@
  */
 import Foundation
 import Combine
-import FirebaseDatabase
+//import FirebaseDatabase
 
 protocol UserDBRepositoryType{
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError>
@@ -23,22 +23,19 @@ protocol UserDBRepositoryType{
 
 class UserDBRepository: UserDBRepositoryType {
     
-    var db: DatabaseReference = Database.database().reference() //db root
+    //var db: DatabaseReference = Database.database().reference() //db root
         
+    private let reference: DBReferenceType
+    init(reference: DBReferenceType) {        
+        self.reference = reference
+    }
+    
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError> {
         Just(object)
             .compactMap{ try? JSONEncoder().encode($0)}
             .compactMap{ try? JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed) }
             .flatMap{ value in
-                Future<Void, Error> {[weak self] promise in
-                    self?.db.child(DBKey.Users).child(object.id).setValue(value) { error, _ in
-                        if let error {
-                            promise(.failure(error))
-                        }else{
-                            promise(.success(()))
-                        }
-                    }
-                }
+                self.reference.setValue(key: DBKey.Users, path: object.id, value: value)
             }
             .mapError{ DBError.error($0) }
             .eraseToAnyPublisher()
@@ -46,32 +43,24 @@ class UserDBRepository: UserDBRepositoryType {
     }
     
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError> {
-        Future<Any?, DBError> {[weak self] promise in
-            self?.db.child(DBKey.Users).child(userId).getData { error, snapshot in
-                if let error {
-                    promise(.failure(DBError.error(error)))
-                }else if snapshot?.value is NSNull {
-                    promise(.success(nil))
-                }else{
-                    promise(.success(snapshot?.value))
+        
+        reference.fetch(key: DBKey.Users, path: userId)
+            .flatMap { value in
+                if let value {
+                    return Just(value)
+                        .tryMap { try JSONSerialization.data(withJSONObject: $0) }
+                        .decode(type: UserObject.self, decoder: JSONDecoder())
+                        .mapError { DBError.error($0) }
+                        .eraseToAnyPublisher()
+                } else {
+                    return Fail(error: .emptyValue).eraseToAnyPublisher()
                 }
             }
-        }.flatMap{ value in
-            if let value {
-                return Just(value)
-                    .tryMap{ try JSONSerialization.data(withJSONObject: $0) }
-                    .decode(type: UserObject.self, decoder: JSONDecoder())
-                    .mapError{ DBError.error($0)}
-                    .eraseToAnyPublisher()
-            }else {
-                return Fail(error: .emptyValue).eraseToAnyPublisher()
-            }
-        }
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     func getUser(userId: String) async throws -> UserObject {
-        guard let value  = try await self.db.child(DBKey.Users).child(userId).getData().value else {
+        guard let value = try await reference.fetch(key: DBKey.Users, path: userId) else {
             throw DBError.emptyValue
         }
         let data = try JSONSerialization.data(withJSONObject: value)
@@ -81,94 +70,70 @@ class UserDBRepository: UserDBRepositoryType {
     
     
     func loadUsers() -> AnyPublisher<[UserObject], DBError> {
-        Future<Any?, DBError> {[weak self] promise in
-            self?.db.child(DBKey.Users).getData { error, snapshot in
-                if let error {
-                    promise(.failure(DBError.error(error)))
-                }else if snapshot?.value is NSNull {
-                    promise(.success(nil))
-                }else{
-                    promise(.success(snapshot?.value))
+        reference.fetch(key: DBKey.Users, path: nil)
+            .flatMap { value in
+                if let dic = value as? [String: [String: Any]] {
+                    return Just(dic)
+                        .tryMap { try JSONSerialization.data(withJSONObject: $0) }
+                        .decode(type: [String: UserObject].self, decoder: JSONDecoder())
+                        .map { $0.values.map { $0 as UserObject} }
+                        .mapError { DBError.error($0) }
+                        .eraseToAnyPublisher()
+                } else if value == nil {
+                    return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
+                } else {
+                    return Fail(error: .invalidate).eraseToAnyPublisher()
                 }
             }
-        }.flatMap{ value in
-            if let dic = value as? [String: [String: Any]] {
-                return Just(dic)
-                    .tryMap{ try JSONSerialization.data(withJSONObject: $0)}
-                    .decode(type: [String: UserObject].self, decoder: JSONDecoder())
-                    .map{ $0.values.map {$0 as UserObject} }
-                    .mapError{ DBError.error($0)}
-                    .eraseToAnyPublisher()
-
-            }else if value == nil  {
-                return Just([]).setFailureType(to: DBError.self)
-                    .eraseToAnyPublisher()
-            }else{
-                //타입도 맞지 않고 데이터도 없는 경우 = 실패 리턴
-                return Fail(error: .invalidate).eraseToAnyPublisher()
-            }
-            
-        }.eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     func addUserFromContact(users: [UserObject]) -> AnyPublisher<Void, DBError> {
         Publishers.Zip(users.publisher, users.publisher)
-            .compactMap{ origin, converted in                
-                if let converted = try? JSONEncoder().encode(converted){
+            .compactMap { origin, converted in
+                if let converted = try? JSONEncoder().encode(converted) {
                     return (origin, converted)
-                }else {
-                   return  nil
-                }
-            }.compactMap{ origin, converted in
-                if let converted = try? JSONSerialization.jsonObject(with: converted, options: .fragmentsAllowed) {
-                    return (origin, converted)
-                }else{
+                } else {
                     return nil
                 }
-            }.flatMap{ origin, converted in
-                Future <Void, Error> {[weak self] promise in
-                    self?.db.child(DBKey.Users).child(origin.id).setValue(converted) { error, _ in
-                        if let error {
-                            promise(.failure(error))
-                        }else{
-                            promise(.success(()))
-                        }
-                    }
+            }
+            .compactMap { origin, converted in
+                if let converted = try? JSONSerialization.jsonObject(with: converted, options: .fragmentsAllowed) {
+                    return (origin, converted)
+                } else {
+                    return nil
                 }
-            }.last()
-            .mapError{
-                .error($0)
-            }.eraseToAnyPublisher()
+            }
+            .flatMap { [weak self] origin, converted -> AnyPublisher<Void, DBError> in
+                guard let `self` = self else { return Empty().eraseToAnyPublisher() }
+                return self.reference.setValue(key: DBKey.Users, path: origin.id, value: converted)
+            }
+            .last()
+            .eraseToAnyPublisher()
     }
     
     func updateUser(userId: String, key: String, value: Any) async throws {
-        try await self.db.child(DBKey.Users).child(userId).child(key).setValue(value)
+        try await reference.setValue(key: DBKey.Users, path: "\(userId)/\(key)", value: value)
     }
     
     func filterUsers(with queryString: String) -> AnyPublisher<[UserObject], DBError> {
-        Future{ [weak self] promise in
-            self?.db.child(DBKey.Users)
-                .queryOrdered(byChild: "name")
-                .queryStarting(atValue: queryString)
-                .queryEnding(atValue: queryString + "\u{f8ff}") //unicode last
-                .observeSingleEvent(of: .value, with: { snapshot in
-                    promise(.success(snapshot.value))
-                })
-        }.flatMap{ value in
-            if let dic = value as? [String : [String: Any]] {
-                return Just(dic)
-                    .tryMap { try JSONSerialization.data(withJSONObject: $0) }
-                    .decode(type: [String: UserObject].self, decoder: JSONDecoder())
-                    .map{ $0.values.map { $0 as UserObject }}
-                    .mapError{ DBError.error($0) }
-                    .eraseToAnyPublisher()
-            }else if value == nil {
-                return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
-            }else {
-                return Fail(error: DBError.invalidate).eraseToAnyPublisher()
+        
+        reference.filter(key: DBKey.Users, path: nil, orderedName: "name", queryString: queryString)
+            .flatMap { value in
+                if let dic = value as? [String: [String: Any]] {
+                    return Just(dic)
+                        .tryMap { try JSONSerialization.data(withJSONObject: $0) }
+                        .decode(type: [String: UserObject].self, decoder: JSONDecoder())
+                        .map { $0.values.map { $0 as UserObject} }
+                        .mapError { DBError.error($0) }
+                        .eraseToAnyPublisher()
+                } else if value == nil {
+                    return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
+                } else {
+                    return Fail(error: .invalidate).eraseToAnyPublisher()
+                }
             }
-        }
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
 }
 
