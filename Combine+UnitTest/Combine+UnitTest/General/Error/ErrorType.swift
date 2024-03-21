@@ -20,6 +20,8 @@ enum DBError: Error{
     case error(Error)
     case emptyValue
     case invalidate
+    case decodingError
+    case encodingError
 }
 
 // MARK: Service Layer에서 공통으로 사용

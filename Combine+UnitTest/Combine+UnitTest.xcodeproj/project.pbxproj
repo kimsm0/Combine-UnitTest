@@ -98,6 +98,11 @@
 		31CFFFE02BAA574F008BCAAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31CFFFDF2BAA574F008BCAAD /* FirebaseAuth */; };
 		31CFFFE52BAA6100008BCAAD /* ObservableObjectSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFE42BAA6100008BCAAD /* ObservableObjectSettable.swift */; };
 		31CFFFE72BAA67D4008BCAAD /* UserDBRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFE62BAA67D4008BCAAD /* UserDBRepositoryTest.swift */; };
+		31CFFFF02BAC4FA4008BCAAD /* ChatRoomServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFEF2BAC4FA4008BCAAD /* ChatRoomServiceTest.swift */; };
+		31CFFFF22BAC59BE008BCAAD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFF12BAC59BE008BCAAD /* Util.swift */; };
+		31CFFFF42BAC692F008BCAAD /* TestDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFF32BAC692F008BCAAD /* TestDouble.swift */; };
+		31CFFFF62BAC6C3A008BCAAD /* Encodable+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFF52BAC6C3A008BCAAD /* Encodable+Ex.swift */; };
+		31CFFFF92BAC77F1008BCAAD /* ChatViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CFFFF82BAC77F1008BCAAD /* ChatViewModelTest.swift */; };
 		31D86D002B9DAC50006D7421 /* Combine_UnitTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */; };
 		31D86D042B9DAC51006D7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D032B9DAC51006D7421 /* Assets.xcassets */; };
 		31D86D072B9DAC51006D7421 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D86D062B9DAC51006D7421 /* Preview Assets.xcassets */; };
@@ -207,6 +212,11 @@
 		31CFFFD52BA8877D008BCAAD /* AppearanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 		31CFFFE42BAA6100008BCAAD /* ObservableObjectSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObjectSettable.swift; sourceTree = "<group>"; };
 		31CFFFE62BAA67D4008BCAAD /* UserDBRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBRepositoryTest.swift; sourceTree = "<group>"; };
+		31CFFFEF2BAC4FA4008BCAAD /* ChatRoomServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomServiceTest.swift; sourceTree = "<group>"; };
+		31CFFFF12BAC59BE008BCAAD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		31CFFFF32BAC692F008BCAAD /* TestDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDouble.swift; sourceTree = "<group>"; };
+		31CFFFF52BAC6C3A008BCAAD /* Encodable+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Ex.swift"; sourceTree = "<group>"; };
+		31CFFFF82BAC77F1008BCAAD /* ChatViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModelTest.swift; sourceTree = "<group>"; };
 		31D86CFC2B9DAC50006D7421 /* Combine+UnitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Combine+UnitTest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D86CFF2B9DAC50006D7421 /* Combine_UnitTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine_UnitTestApp.swift; sourceTree = "<group>"; };
 		31D86D032B9DAC51006D7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -325,6 +335,8 @@
 				31CFFF422B9F4A10008BCAAD /* View */,
 				31CFFF3C2B9F0C48008BCAAD /* Constant.swift */,
 				31CFFF3E2B9F48D9008BCAAD /* Phase.swift */,
+				31CFFFF12BAC59BE008BCAAD /* Util.swift */,
+				31CFFFF32BAC692F008BCAAD /* TestDouble.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -546,6 +558,22 @@
 			path = RepositoryTest;
 			sourceTree = "<group>";
 		};
+		31CFFFEE2BAC4F71008BCAAD /* ServiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFFEF2BAC4FA4008BCAAD /* ChatRoomServiceTest.swift */,
+			);
+			path = ServiceTest;
+			sourceTree = "<group>";
+		};
+		31CFFFF72BAC77E3008BCAAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				31CFFFF82BAC77F1008BCAAD /* ChatViewModelTest.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		31D86CF32B9DAC4F006D7421 = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +631,8 @@
 		31D86D142B9DAC51006D7421 /* Combine+UnitTestTests */ = {
 			isa = PBXGroup;
 			children = (
+				31CFFFF72BAC77E3008BCAAD /* ViewModel */,
+				31CFFFEE2BAC4F71008BCAAD /* ServiceTest */,
 				31CFFFE82BAA6803008BCAAD /* RepositoryTest */,
 			);
 			path = "Combine+UnitTestTests";
@@ -623,6 +653,7 @@
 				31D86D312B9DE0C2006D7421 /* Color+Ex.swift */,
 				31CFFF702BA1CBE6008BCAAD /* Data+Ex.swift */,
 				31CFFFAB2BA408E5008BCAAD /* Date+Ex.swift */,
+				31CFFFF52BAC6C3A008BCAAD /* Encodable+Ex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -787,6 +818,7 @@
 				31CFFFB72BA7FA3B008BCAAD /* ChatObject.swift in Sources */,
 				31CFFF8C2BA1EE42008BCAAD /* ChatRoomObject.swift in Sources */,
 				31CFFF392B9F0A02008BCAAD /* UserObject.swift in Sources */,
+				31CFFFF62BAC6C3A008BCAAD /* Encodable+Ex.swift in Sources */,
 				318314AF2B9E029000624F21 /* AppDelegate.swift in Sources */,
 				31CFFFE52BAA6100008BCAAD /* ObservableObjectSettable.swift in Sources */,
 				3183149D2B9DF55C00624F21 /* AuthenticationView.swift in Sources */,
@@ -796,6 +828,7 @@
 				31CFFF6D2BA1C6E8008BCAAD /* MemoryStorage.swift in Sources */,
 				31CFFF602BA1BC3A008BCAAD /* PhotoImage.swift in Sources */,
 				31D86D0C2B9DAC51006D7421 /* Combine_UnitTest.xcdatamodeld in Sources */,
+				31CFFFF22BAC59BE008BCAAD /* Util.swift in Sources */,
 				318314BB2B9E06DE00624F21 /* LoginIntroView.swift in Sources */,
 				318314B32B9E041000624F21 /* AuthenticationService.swift in Sources */,
 				31CFFFC92BA848B7008BCAAD /* RecentSearchView.swift in Sources */,
@@ -834,6 +867,7 @@
 				31CFFF692BA1C052008BCAAD /* UploadService.swift in Sources */,
 				31D86D322B9DE0C2006D7421 /* Color+Ex.swift in Sources */,
 				31CFFFA02BA3D2DF008BCAAD /* ChatListViewModel.swift in Sources */,
+				31CFFFF42BAC692F008BCAAD /* TestDouble.swift in Sources */,
 				31CFFFD62BA8877D008BCAAD /* AppearanceController.swift in Sources */,
 				31CFFFA82BA40091008BCAAD /* ChatViewModel.swift in Sources */,
 				31CFFFB92BA7FC2C008BCAAD /* ChatService.swift in Sources */,
@@ -866,6 +900,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31CFFFF92BAC77F1008BCAAD /* ChatViewModelTest.swift in Sources */,
+				31CFFFF02BAC4FA4008BCAAD /* ChatRoomServiceTest.swift in Sources */,
 				31CFFFE72BAA67D4008BCAAD /* UserDBRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

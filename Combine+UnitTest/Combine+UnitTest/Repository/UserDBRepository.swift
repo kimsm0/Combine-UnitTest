@@ -32,14 +32,12 @@ class UserDBRepository: UserDBRepositoryType {
     
     func addUser(_ object: UserObject) -> AnyPublisher<Void, DBError> {
         Just(object)
-            .compactMap{ try? JSONEncoder().encode($0)}
-            .compactMap{ try? JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed) }
+            .tryMap{ try JSONEncoder().encode($0)}
+            .tryMap{ try JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed) }
+            .mapError{_ in  DBError.invalidate }
             .flatMap{ value in
                 self.reference.setValue(key: DBKey.Users, path: object.id, value: value)
-            }
-            .mapError{ DBError.error($0) }
-            .eraseToAnyPublisher()
-        
+            }.eraseToAnyPublisher()
     }
     
     func getUser(userId: String) -> AnyPublisher<UserObject, DBError> {
@@ -50,7 +48,7 @@ class UserDBRepository: UserDBRepositoryType {
                     return Just(value)
                         .tryMap { try JSONSerialization.data(withJSONObject: $0) }
                         .decode(type: UserObject.self, decoder: JSONDecoder())
-                        .mapError { DBError.error($0) }
+                        .mapError {_ in DBError.decodingError }
                         .eraseToAnyPublisher()
                 } else {
                     return Fail(error: .emptyValue).eraseToAnyPublisher()

@@ -61,7 +61,9 @@ class ChatRoomService: ChatRoomServiceType {
     }
 }
 
-class StubChatRoomService: ChatRoomServiceType{
+class StubChatRoomService: ChatRoomServiceType {
+    var value: Any?
+    
     func createChatRoomIfNeeded(myUserId: String, friendUserId: String, friendUserName: String) -> AnyPublisher<ChatRoom, ServiceError> {
         Empty().eraseToAnyPublisher()
     }

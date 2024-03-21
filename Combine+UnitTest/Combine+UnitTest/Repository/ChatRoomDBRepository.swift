@@ -18,100 +18,111 @@ protocol ChatRoomDBRepositoryType {
 
 class ChatRoomDBRepository: ChatRoomDBRepositoryType {
     
-    var db: DatabaseReference = Database.database().reference()
+    private let dbReference: DBReferenceType
+    
+    init(dbReference: DBReferenceType) {
+        self.dbReference = dbReference
+    }
     
     func getChatRoom(myUserId: String, friendUserId: String) -> AnyPublisher<ChatRoomObject?, DBError> {
-        Future<Any?, DBError> { [weak self] promise in
-            self?.db.child(DBKey.ChatRooms).child(myUserId).child(friendUserId).getData { error, snapshot in
-                if let error {
-                    promise(.failure(DBError.error(error)))
-                }else if snapshot?.value is NSNull {
-                    promise(.success(nil))
+        
+        dbReference.fetch(key: DBKey.ChatRooms, path: "\(myUserId)/\(friendUserId)")
+            .flatMap{ value in
+                if let value {
+                    return Just(value)
+                        .tryMap{ try JSONSerialization.data(withJSONObject: $0)}
+                        .decode(type: ChatRoomObject?.self, decoder: JSONDecoder())
+                        .mapError{_ in  DBError.decodingError }
+                        .eraseToAnyPublisher()
                 }else {
-                    promise(.success(snapshot?.value))
+                    return Just(nil)
+                        .setFailureType(to: DBError.self)
+                        .eraseToAnyPublisher()
                 }
-            }
-        }
-        .flatMap{ value in
-            if let value {
-                return Just(value)
-                    .tryMap{ try JSONSerialization.data(withJSONObject: $0)}
-                    .decode(type: ChatRoomObject?.self, decoder: JSONDecoder())
-                    .mapError{ DBError.error($0)}
-                    .eraseToAnyPublisher()
-            }else {
-                return Just(nil).setFailureType(to: DBError.self).eraseToAnyPublisher()
-            }
-        }
-        .eraseToAnyPublisher()
+            }.eraseToAnyPublisher()
     }
     
     func addChatRoom(_ object: ChatRoomObject, myUserId: String) -> AnyPublisher<Void, DBError> {
+        
         Just(object)
-            .compactMap{ try? JSONEncoder().encode($0) }
-            .compactMap{ try? JSONSerialization.jsonObject(with: $0, options: .fragmentsAllowed) }
+            .tryMap{ try Util.toJson(object: $0) }
+            .mapError{_ in  DBError.encodingError }
+            .flatMap{[weak self] value in
+                guard let weakSelf = self else {
+                    return Empty<Void, DBError>().eraseToAnyPublisher()
+                        .eraseToAnyPublisher()
+                }
+                return weakSelf.dbReference.setValue(key: DBKey.ChatRooms, path: "\(myUserId)/\(object.friendUserId)", value: value)
+            }.eraseToAnyPublisher()
+    }
+    
+    func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoomObject], DBError> {
+        dbReference.fetch(key: DBKey.ChatRooms, path: myUserId)
             .flatMap{ value in
-                Future<Void, Error> {[weak self] promise in
-                    self?.db.child(DBKey.ChatRooms).child(myUserId).child(object.friendUserId).setValue(value) { error, _ in
-                        if let error {
-                            promise(.failure(error))
-                        } else {
-                            promise(.success(()))
-                        }
-                    }
+                if let dic = value as? [String: [String: Any]] {
+                    return Just(dic)
+                        .tryMap{ try JSONSerialization.data(withJSONObject: $0) }
+                        .decode(type: [String: ChatRoomObject].self, decoder: JSONDecoder())
+                        .map { $0.values.map { $0 as ChatRoomObject } }
+                        .mapError{ DBError.error($0) }
+                        .eraseToAnyPublisher()
+                }else if value == nil {
+                    return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
+                }else{
+                    return Fail(error: DBError.invalidate).eraseToAnyPublisher()
                 }
             }
-            .mapError{ DBError.error($0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, friendUserId: String, lastMessage: String) -> AnyPublisher<Void, DBError> {
+        let values = [
+            "\(DBKey.ChatRooms)/\(myUserId)/\(friendUserId)/lastMessage" : lastMessage,
+            "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/lastMessage" : lastMessage,
+            "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/chatRoomId" : chatRoomId,
+            "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/friendUserName" : myUserName,
+            "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/friendUserId" : myUserId
+        ]
+        return dbReference.setValues(values)
+    }
+}
+
+
+class MockChatRoomDBRepository: ChatRoomDBRepositoryType {
+    
+    let mockData: Any?
+    
+    var addChatRoomCallCount = 0
+    var getChatRoomCallCount = 0
+    
+    init(mockData: Any?) {
+        self.mockData = mockData
+    }
+    
+    func getChatRoom(myUserId: String, friendUserId: String) -> AnyPublisher<ChatRoomObject?, DBError> {
+        getChatRoomCallCount += 1
+        return Just(mockData as? ChatRoomObject).setFailureType(to: DBError.self)
+            .eraseToAnyPublisher()
+    }
+    
+    func addChatRoom(_ object: ChatRoomObject, myUserId: String) -> AnyPublisher<Void, DBError> {
+        addChatRoomCallCount += 1
+        return Just(()).setFailureType(to: DBError.self)
             .eraseToAnyPublisher()
     }
     
     func loadChatRooms(myUserId: String) -> AnyPublisher<[ChatRoomObject], DBError> {
-        Future<Any?, DBError> { promise in
-            self.db.child(DBKey.ChatRooms).child(myUserId).getData { error, snapshot in
-                if let error = error {
-                    promise(.failure(DBError.error(error)))
-                }else if snapshot?.value is NSNull {
-                    promise(.success(nil))
-                }else {
-                    promise(.success(snapshot?.value))
-                }
-            }
-        }.flatMap { value in
-            if let dic = value as? [String: [String: Any]] {
-                return Just(dic)
-                    .tryMap{ try JSONSerialization.data(withJSONObject: $0) }
-                    .decode(type: [String: ChatRoomObject].self, decoder: JSONDecoder())
-                    .map { $0.values.map { $0 as ChatRoomObject }}
-                    .mapError{ DBError.error($0) }
-                    .eraseToAnyPublisher()
-            }else if value == nil {
-                return Just([]).setFailureType(to: DBError.self).eraseToAnyPublisher()
-            }else {
-                return Fail(error: DBError.invalidate).eraseToAnyPublisher()
-            }
-        }.eraseToAnyPublisher()
+        if let value = mockData as? ChatRoomObject {
+            return Just([value]).setFailureType(to: DBError.self)
+                .eraseToAnyPublisher()
+        }else{
+            return Just([]).setFailureType(to: DBError.self)
+                .eraseToAnyPublisher()
+        }
     }
     
     func updateChatRoomLastMessage(chatRoomId: String, myUserId: String, myUserName: String, friendUserId: String, lastMessage: String) -> AnyPublisher<Void, DBError> {
-        
-        Future{[weak self] promise in
-            let values = [
-                "\(DBKey.ChatRooms)/\(myUserId)/\(friendUserId)/lastMessage" : lastMessage,
-                "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/lastMessage" : lastMessage,
-                "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/chatRoomId" : chatRoomId,
-                "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/friendUserName" : myUserName,
-                "\(DBKey.ChatRooms)/\(friendUserId)/\(myUserId)/friendUserId" : myUserId
-            ]
-            
-            self?.db.updateChildValues(values) { error, _ in
-                if let error {
-                    promise(.failure(error))
-                }else {
-                    promise(.success(()))
-                }
-            }
-        }
-        .mapError{ .error($0) }
-        .eraseToAnyPublisher()
+        return Just(()).setFailureType(to: DBError.self)
+            .eraseToAnyPublisher()
     }
 }
