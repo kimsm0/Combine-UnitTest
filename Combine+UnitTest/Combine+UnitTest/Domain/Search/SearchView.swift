@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(\.managedObjectContext) var objectContext
-    @EnvironmentObject var navigationRouter: NavigationRouter
     @StateObject var searchViewModel: SearchViewModel
+    @EnvironmentObject var container: DIContainer
     
     var body: some View {
         VStack{
@@ -47,7 +47,7 @@ struct SearchView: View {
     var topView: some View {
         HStack(spacing: 0){
             Button(action: {
-                navigationRouter.pop()
+                container.navigationRouter.pop()
             }, label: {
                 Image("search_back")
             })

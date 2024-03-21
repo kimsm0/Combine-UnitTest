@@ -9,11 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var container: DIContainer
-    @EnvironmentObject var navigationRouter: NavigationRouter
     @StateObject var homeViewModel: HomeViewModel
     
     var body: some View {
-        NavigationStack(path: $navigationRouter.destination){
+        NavigationStack(path: $container.navigationRouter.destination){
             contentView
                 .fullScreenCover(item: $homeViewModel.modalDestination) {
                     switch $0 {
@@ -199,8 +198,7 @@ struct HomeView: View {
 
 #Preview {
     
-    HomeView(homeViewModel: .init(container: .init(services: StubService()), navigationRouter: NavigationRouter(), userId: "user1_id"))
-        .environmentObject(NavigationRouter())
+    HomeView(homeViewModel: .init(container: .init(services: StubService()), userId: "user1_id"))        
         .environmentObject(DIContainer(services: Services()))
         
 }

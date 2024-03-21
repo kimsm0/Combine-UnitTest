@@ -32,12 +32,12 @@ class Services: ServiceType{
     
     init() {
         self.authService = AuthenticationService()
-        self.userService = UserService(dbRepository: UserDBRepository())
+        self.userService = UserService(dbRepository: UserDBRepository(reference: DBReference()))
         self.contactService = ContactService()
         self.photoPickerService = PhotoPickerService()
         self.uploadService = UploadService(provider: UploadProvider())
         self.imageCacheService = ImageCacheService(memoryStorage: MemoryStorage(), diskStorage: DiskStorage())
-        self.chatRoomService = ChatRoomService(dbRepository: ChatRoomDBRepository())
+        self.chatRoomService = ChatRoomService(dbRepository: ChatRoomDBRepository(dbReference: DBReference()))
         self.chatService = ChatService(dbRepository: ChatDBRepository())
     }
 }

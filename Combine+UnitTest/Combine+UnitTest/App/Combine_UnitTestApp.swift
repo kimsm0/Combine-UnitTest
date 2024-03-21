@@ -17,11 +17,11 @@ struct Combine_UnitTestApp: App {
     
     var body: some Scene {
         WindowGroup { //UIKit의 SceneDelegate
-            AuthenticationView(authenticatedViewModel: .init(container: container),
-                               navigationRouter: .init(),
-                               searchDataController: SearchDataController(),
-                               appearanceController: .init(appearance))            
+            AuthenticationView(authenticatedViewModel: .init(container: container))                                           
                 .environmentObject(container)
+                .onAppear{
+                    container.appearanceController.changeAppearance(AppearanceType(rawValue: appearance) ?? .automatic)
+                }
         }
     }
 }

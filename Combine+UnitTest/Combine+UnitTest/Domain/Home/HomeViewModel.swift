@@ -25,13 +25,11 @@ class HomeViewModel: ObservableObject{
     @Published var modalDestination: HomeModalDestination?
     
     var userId: String
-    private var container: DIContainer
-    private var navigationRouter: NavigationRouter
+    private var container: DIContainer    
     private var subscriptions = Set<AnyCancellable>()
     
-    init(container: DIContainer, navigationRouter: NavigationRouter, userId: String){
+    init(container: DIContainer, userId: String){
         self.container = container
-        self.navigationRouter = navigationRouter
         self.userId = userId
     }
     
@@ -81,8 +79,8 @@ class HomeViewModel: ObservableObject{
                 .sink { completion in
                     
                 } receiveValue: {[weak self] room in
-                    guard let weakSelf = self else { return }
-                    weakSelf.navigationRouter.push(to: .chat(chatRoomId: room.chatRoomId, myUserId: weakSelf.userId, friendUserId: friend.id))
+                    guard let weakSelf = self else { return }                    
+                    weakSelf.container.navigationRouter.push(to: .chat(chatRoomId: room.chatRoomId, myUserId: weakSelf.userId, friendUserId: friend.id))
                 }.store(in: &subscriptions)
 
         case let .presentView(destination):

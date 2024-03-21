@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
     @AppStorage(AppStorageType.Appearance) var appearance: Int = UserDefaults.standard.integer(forKey: AppStorageType.Appearance)
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var appearanceController: AppearanceController
+    @EnvironmentObject var container: DIContainer
     @StateObject var settingViewModel: SettingViewModel
     
     var body: some View {
@@ -21,7 +21,7 @@ struct SettingView: View {
                         ForEach(section.items){ setting in
                             Button(action: {
                                 if let type = setting.item as? AppearanceType {
-                                    appearanceController.changeAppearance(type)
+                                    container.appearanceController.changeAppearance(type)
                                     appearance = type.rawValue
                                 }
                             }, label: {
@@ -44,7 +44,7 @@ struct SettingView: View {
                 }
             }
         }
-        .preferredColorScheme(appearanceController.appearance.colorScheme)
+        .preferredColorScheme(container.appearanceController.appearance.colorScheme)
     }
 }
 

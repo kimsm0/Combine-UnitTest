@@ -1,10 +1,12 @@
-//
-//  DBReference.swift
-//  Combine+UnitTest
-//
-//  Created by kimsoomin_mac2022 on 3/15/24.
-//
-
+/**
+ @class DBReference
+ @date 3/20/24
+ @writer kimsoomin
+ @brief
+ - 테스트 진행시 DBReferenceType 체택하고 있는 어떤 객체도 DBRepository 주입이 되어 firebase와의 연결을 테스트해볼 수 있도록 하기 위해 분리한 클래스
+ @update history
+ - Test Double 추가
+ */
 import Foundation
 import Combine
 import FirebaseDatabase
@@ -122,3 +124,43 @@ class DBReference: DBReferenceType {
     }
 }
 
+struct StubUserDBReference: DBReferenceType {
+    
+    let value: Any? //test용 데이터
+    
+    func setValue(key: String, path: String?, value: Any) -> AnyPublisher<Void, DBError> {
+        return Just(()).setFailureType(to: DBError.self).eraseToAnyPublisher()
+    }
+    
+    func fetch(key: String, path: String?) -> AnyPublisher<Any?, DBError> {
+        Just(value).setFailureType(to: DBError.self).eraseToAnyPublisher()
+    }
+    
+    func setValue(key: String, path: String?, value: Any) async throws {
+    }
+    
+    func setValues(_ values: [String : Any]) -> AnyPublisher<Void, Combine_UnitTest.DBError> {
+        Just(()).setFailureType(to: DBError.self).eraseToAnyPublisher()
+    }
+    
+
+    func fetch(key: String, path: String?) async throws -> Any? {
+        return value
+    }
+    
+    func filter(key: String, path: String?, orderedName: String, queryString: String) -> AnyPublisher<Any?, Combine_UnitTest.DBError> {
+        Just(nil).setFailureType(to: DBError.self).eraseToAnyPublisher()
+    }
+    
+    func childByAutoId(key: String, path: String?) -> String? {
+        return nil
+    }
+    
+    func observeChildAdded(key: String, path: String?) -> AnyPublisher<Any?, Combine_UnitTest.DBError> {
+        Just(nil).setFailureType(to: DBError.self).eraseToAnyPublisher()
+    }
+
+    func removeObservedHandlers() {
+    }
+}
+  

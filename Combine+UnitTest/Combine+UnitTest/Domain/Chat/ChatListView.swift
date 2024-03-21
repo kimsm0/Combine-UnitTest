@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ChatListView: View {
-    @EnvironmentObject var navigationRouter: NavigationRouter
+    @EnvironmentObject var container: DIContainer
     @StateObject var chatListViewModel: ChatListViewModel
     
     var body: some View {
-        NavigationStack(path: $navigationRouter.destination) {
+        NavigationStack(path: $container.navigationRouter.destination) {
             ScrollView {
                 NavigationLink(value: NavigationDestination.search(userId: chatListViewModel.userId)) {
                     SearchButtonView()
@@ -72,5 +72,5 @@ fileprivate struct ChatRoomCell: View {
 
 #Preview {
     ChatListView(chatListViewModel: ChatListViewModel(container: .init(services: StubService()), userId: "test_userId"))
-        .environmentObject(NavigationRouter())
+        
 }
